@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestations & tarifs{% endblock %}
+
+{% block body %}
+    <h1>Prestations & tarifs</h1>
+    <p>Des prestations de qualité professionnelle dans le confort de votre domicile.</p>
+    <p>Pour toute la famille, du lundi au samedi.</p>
+
+    <h2>Hommes</h2>
+    <ul>
+        {% for service in services %}
+            {% if service.category == 'Hommes' %}
+                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Femmes</h2>
+    <ul>
+        {% for service in services %}
+            {% if service.category == 'Femmes' %}
+                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Colorations</h2>
+    <ul>
+        {% for service in services %}
+            {% if service.category == 'Colorations' %}
+                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Enfants</h2>
+    <ul>
+        {% for service in services %}
+            {% if service.category == 'Enfants' %}
+                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisations{% endblock %}
+
+{% block body %}
+    <h1>Avant / Après</h1>
+    <p>Découvrez quelques transformations réalisées</p>
+
+    <div class="achievements-gallery">
+        {% for achievement in achievements %}
+            <div class="achievement">
+                <div class="before-after">
+                    <div class="before">
+                        <img src="{{ asset('uploads/achievements/' ~ achievement.imageBefore) }}" alt="Avant chignon">
+                        <p>Avant</p>
+                    </div>
+                    <div class="after">
+                        <img src="{{ asset('uploads/achievements/' ~ achievement.imageAfter) }}" alt="Après avec chignon">
+                        <p>Après</p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>Aucune réalisation pour le moment.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

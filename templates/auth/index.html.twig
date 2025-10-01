@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion / Inscription{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue</h1>
+    <p>Connectez-vous ou créez un compte pour prendre rendez-vous</p>
+
+    <h1>Se connecter</h1>
+
+    {% if error %}
+        <div style="color: red;">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
+    <form method="post" action="{{ path('app_login') }}">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" value="{{ last_username }}" placeholder="Entrez votre email" required autofocus>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+            <label for="remember_me">Se souvenir de moi</label>
+        </div>
+
+        <button type="submit">Connexion</button>
+    </form>
+
+    <hr>
+
+    <h1>S'inscrire</h1>
+
+    {{ form_start(registrationForm, {'action': path('app_auth')}) }}
+
+    {{ form_row(registrationForm.civility) }}
+    {{ form_row(registrationForm.lastName) }}
+    {{ form_row(registrationForm.firstName) }}
+    {{ form_row(registrationForm.address) }}
+    {{ form_row(registrationForm.city) }}
+    {{ form_row(registrationForm.zipcode) }}
+    {{ form_row(registrationForm.addressComplement) }}
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.phone) }}
+    {{ form_row(registrationForm.plainPassword.first) }}
+    {{ form_row(registrationForm.plainPassword.second) }}
+    {{ form_row(registrationForm.agreeTerms) }}
+
+    <button type="submit">Créer mon compte</button>
+
+    {{ form_end(registrationForm) }}
+{% endblock %}
+

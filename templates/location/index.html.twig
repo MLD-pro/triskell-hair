@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lieux de déplacements{% endblock %}
+
+{% block body %}
+    <h1>Lieux de déplacements</h1>
+    <p>Suis-je disponible dans votre ville ou commune ?</p>
+
+    {# Formulaire de recherche #}
+    <h2>Recherche votre ville ou commune</h2>
+    <p>Service de coiffure à domicile dans un rayon de 30km autour de Quimperlé</p>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Rechercher</button>
+    {{ form_end(form) }}
+
+    {# Résultats de recherche #}
+    {% if locations is not empty %}
+        <h2>Résultats :</h2>
+        <ul>
+            {% for location in locations %}
+                <li>{{ location.city }} ({{ location.zipcode }})</li>
+            {% endfor %}
+        </ul>
+    {% elseif isSubmitted %}
+        <p>Aucun résultat trouvé.</p>
+    {% endif %}
+
+    {# Conteneur de la carte #}
+    <div id="map" style="height: 400px; margin-top:20px;"></div>
+
+    {# Leaflet CSS et JS #}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialisation de la carte centrée sur Quimperlé
+        var map = L.map('map').setView([47.8667, -3.55], 13);
+
+        // Fond de carte OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Le marqueur sur Quimperlé
+        L.marker([47.8667, -3.55])
+            .addTo(map)
+            .bindPopup("Quimperlé")
+            .openPopup();
+    </script>
+
+{% endblock %}

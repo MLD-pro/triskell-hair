@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande de rendez-vous{% endblock %}
+
+{% block body %}
+    <h1>Faire une demande de rendez-vous</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Envoyer ma demande</button>
+    {{ form_end(form) }}
+{% endblock %}
+

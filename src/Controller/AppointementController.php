@@ -17,6 +17,19 @@ class AppointementController extends AbstractController
     {
         $appointement = new Appointement();
 
+        // 🔹 Si l'utilisateur est connecté, préremplir les infos connues
+        $user = $this->getUser();
+        if ($user) {
+            $appointement->setLastname($user->getLastName());
+            $appointement->setFirstname($user->getFirstName());
+            $appointement->setEmail($user->getEmail());
+            $appointement->setPhone($user->getPhone());
+            $appointement->setAddress($user->getAddress());
+            $appointement->setZipcode($user->getZipcode());
+            $appointement->setCity($user->getCity());
+            $appointement->setCivility($user->getCivility());
+        }
+
         $form = $this->createForm(AppointementType::class, $appointement);
         $form->handleRequest($request);
 
@@ -28,7 +41,7 @@ class AppointementController extends AbstractController
             // Message de confirmation
             $this->addFlash('success', 'Votre demande de rendez-vous a bien été envoyée. Vous serez contacté rapidement.');
 
-            // Redirection vers la même page ou ailleurs
+            // Redirection vers la même page
             return $this->redirectToRoute('app_appointement');
         }
 
@@ -37,4 +50,5 @@ class AppointementController extends AbstractController
         ]);
     }
 }
+
 

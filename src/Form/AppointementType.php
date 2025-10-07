@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Appointement;
+use App\Entity\Service;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -12,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class AppointementType extends AbstractType
 {
@@ -19,7 +21,7 @@ class AppointementType extends AbstractType
     {
         $builder
             ->add('civility', ChoiceType::class, [
-                'label' => 'Civilité',
+                'label' => false,
                 'choices' => [
                     'Monsieur' => 'M.',
                     'Madame' => 'Mme',
@@ -43,16 +45,20 @@ class AppointementType extends AbstractType
                 'label' => 'Téléphone',
                 'attr' => ['placeholder' => 'Votre numéro de téléphone'],
             ])
-            ->add('service', TextType::class, [
-                'label' => 'Prestation souhaitée',
-                'attr' => ['placeholder' => 'Ex : Coupe, couleur...'],
+            ->add('services', EntityType::class, [
+                'class' => Service::class,
+                'choice_label' => 'name',
+                'label' => 'Prestations souhaitées',
+                'multiple' => true,   // multi-sélection
+                'expanded' => false,  // menu déroulant au lieu de cases
+                'group_by' => 'category',
             ])
             ->add('date1', DateType::class, [
                 'label' => 'Date souhaitée (1er choix)',
                 'widget' => 'single_text',
             ])
             ->add('moment1', ChoiceType::class, [
-                'label' => 'Créneau (1er choix)',
+                'label' => false,
                 'choices' => [
                     'Matin' => 'matin',
                     'Après-midi' => 'apresmidi',
@@ -66,7 +72,7 @@ class AppointementType extends AbstractType
                 'required' => false,
             ])
             ->add('moment2', ChoiceType::class, [
-                'label' => 'Créneau (2e choix)',
+                'label' => false,
                 'choices' => [
                     'Matin' => 'matin',
                     'Après-midi' => 'apresmidi',
@@ -81,7 +87,7 @@ class AppointementType extends AbstractType
                 'required' => false,
             ])
             ->add('moment3', ChoiceType::class, [
-                'label' => 'Créneau (3e choix)',
+                'label' => false,
                 'choices' => [
                     'Matin' => 'matin',
                     'Après-midi' => 'apresmidi',

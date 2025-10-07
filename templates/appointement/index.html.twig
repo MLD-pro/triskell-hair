@@ -1,59 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Prendre rendez-vous{% endblock %}
+{% block title %}Demande de rendez-vous{% endblock %}
 
 {% block body %}
-    <h1>Demande de rendez-vous</h1>
-    <p>Rempliussez ce formulaire, je vous recontacte pour comfirmer l'horaire</p>
+
+    <div class="intro-banner">
+        <h1>Demande de rendez-vous</h1>
+        <p>Remplissez ce formulaire, je vous recontacterai pour confirmer l'horaire.</p>
+    </div>
+
 
     {{ form_start(form) }}
 
-    <div style="width:48%; float:left; margin-right:4%;">
-        <h3>Vos informations</h3>
-        {{ form_row(form.civility) }}
-        {{ form_row(form.lastName) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.service) }}
-    </div>
-
-    <div style="width:48%; float:left;">
-
-        {{ form_row(form.firstName) }}
-        {{ form_row(form.phone) }}
-
-        <div id="choice1">
-            {{ form_row(form.date1) }}
-            {{ form_row(form.moment1) }}
+    <div style="display:flex; gap:20px;">
+        <!-- Colonne gauche -->
+        <div style="width:48%;">
+            {{ form_row(form.civility) }}
+            {{ form_row(form.lastName) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.services) }}
         </div>
 
-        <div id="choice2" style="display:none;">
-            {{ form_row(form.date2) }}
-            {{ form_row(form.moment2) }}
+        <!-- Colonne droite -->
+        <div style="width:48%;">
+            {{ form_row(form.firstName) }}
+            {{ form_row(form.phone) }}
+
+            <!-- Choix 1 -->
+            <div id="date1-block">
+                {{ form_row(form.date1) }}
+                {{ form_row(form.moment1) }}
+                <button type="button" id="validate-date1">Valider ce choix</button>
+            </div>
+
+            <!-- Choix 2 -->
+            <div id="date2-block" style="display:none;">
+                {{ form_row(form.date2) }}
+                {{ form_row(form.moment2) }}
+                <button type="button" id="validate-date2">Valider ce choix</button>
+            </div>
+
+            <!-- Choix 3 -->
+            <div id="date3-block" style="display:none;">
+                {{ form_row(form.date3) }}
+                {{ form_row(form.moment3) }}
+                <button type="button" id="validate-date3">Valider ce choix</button>
+            </div>
         </div>
-
-        <div id="choice3" style="display:none;">
-            {{ form_row(form.date3) }}
-            {{ form_row(form.moment3) }}
-        </div>
     </div>
 
-    <div style="clear:both;"></div>
-
-    {{ form_row(form.address) }}
-
-    <div style="width:48%; float:left; margin-right:4%;">
-        {{ form_row(form.zipcode) }}
+    <div style="margin-top:20px;">
+        {{ form_row(form.address) }}
     </div>
-    <div style="width:48%; float:left;">
-        {{ form_row(form.city) }}
+
+    <div style="display:flex; gap:20px;">
+        <div style="width:48%;">{{ form_row(form.zipcode) }}</div>
+        <div style="width:48%;">{{ form_row(form.city) }}</div>
     </div>
-    <div style="clear:both;"></div>
 
-    {{ form_row(form.message) }}
+    <div style="margin-top:20px;">
+        {{ form_row(form.message) }}
+    </div>
 
-    <button type="submit">Envoyer ma demande</button>
+    <button type="submit">Envoyer la demande</button>
 
     {{ form_end(form) }}
+
+    {# JS #}
+    <script src="{{ asset('js/appointment.js') }}"></script>
+
+    {# jQuery nécessaire pour que mon Select2 focntionne #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    {# Select2 JS #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    {# Select2 CSS #}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
+
 {% endblock %}
+
+
 
 

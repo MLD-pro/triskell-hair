@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\AppointementRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use App\Entity\Service;
 
 #[ORM\Entity(repositoryClass: AppointementRepository::class)]
 class Appointement
@@ -29,8 +32,8 @@ class Appointement
     #[ORM\Column(length: 255)]
     private ?string $phone = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $service = null;
+    #[ORM\ManyToMany(targetEntity: Service::class)]
+    private Collection $services;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date1 = null;
@@ -41,14 +44,14 @@ class Appointement
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date3 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $moment1 = null;
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $moment1 = [];
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $moment2 = null;
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $moment2 = [];
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $moment3 = null;
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $moment3 = [];
 
     #[ORM\Column(length: 255)]
     private ?string $address = null;
@@ -68,6 +71,7 @@ class Appointement
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->services = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -130,14 +134,25 @@ class Appointement
         return $this;
     }
 
-    public function getService(): ?string
+    /**
+     * @return Collection<int, Service>
+     */
+    public function getServices(): Collection
     {
-        return $this->service;
+        return $this->services;
     }
 
-    public function setService(string $service): static
+    public function addService(Service $service): static
     {
-        $this->service = $service;
+        if (!$this->services->contains($service)) {
+            $this->services->add($service);
+        }
+        return $this;
+    }
+
+    public function removeService(Service $service): static
+    {
+        $this->services->removeElement($service);
         return $this;
     }
 
@@ -174,34 +189,34 @@ class Appointement
         return $this;
     }
 
-    public function getMoment1(): ?string
+    public function getMoment1(): ?array
     {
         return $this->moment1;
     }
 
-    public function setMoment1(?string $moment1): static
+    public function setMoment1(?array $moment1): static
     {
         $this->moment1 = $moment1;
         return $this;
     }
 
-    public function getMoment2(): ?string
+    public function getMoment2(): ?array
     {
         return $this->moment2;
     }
 
-    public function setMoment2(?string $moment2): static
+    public function setMoment2(?array $moment2): static
     {
         $this->moment2 = $moment2;
         return $this;
     }
 
-    public function getMoment3(): ?string
+    public function getMoment3(): ?array
     {
         return $this->moment3;
     }
 
-    public function setMoment3(?string $moment3): static
+    public function setMoment3(?array $moment3): static
     {
         $this->moment3 = $moment3;
         return $this;

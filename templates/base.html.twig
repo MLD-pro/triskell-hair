@@ -4,25 +4,64 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{% block title %}Triskell'Hair{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="{{ asset('js/main.js') }}" defer></script>
 </head>
 <body>
-<nav>
-    <a href="{{ path('app_home') }}">Page d'accueil</a>
-    <a href="{{ path('app_services') }}">Prestations & tarifs</a>
-    <a href="{{ path('app_achievements') }}">Réalisations</a>
-    <a href="{{ path('app_location') }}">Lieux de déplacements</a>
-    <a href="{{ path('app_appointement') }}">Prendre rendez-vous</a>
+<!-- HEADER commun -->
+<header class="site-header">
+    <div class="header-top">
+        <!-- Logo cliquable -->
+        <a href="{{ path('app_home') }}" class="logo">
+            <img src="{{ asset('images/logo_h.png') }}" alt="Triskell'Hair">Triskell'Hair
+        </a>
 
-    {% if app.user %}
-        <span>{{ app.user.civility }} {{ app.user.lastName|title }} {{ app.user.firstName|capitalize }} </span>
-        <a href="{{ path('app_logout') }}">Se déconnecter</a>
-    {% else %}
-        <a href="{{ path('app_auth') }}">Se connecter / S'inscrire</a>
-    {% endif %}
-</nav>
+        <!-- Bouton burger (toujours visible) -->
+        <button class="burger" id="burger-btn">☰</button>
+    </div>
 
+    <!-- Menu navigation (caché/affiché via JS) -->
+    <nav class="nav-menu" id="nav-menu">
+        <a href="{{ path('app_home') }}">Page d'accueil</a>
+        <a href="{{ path('app_services') }}">Prestations & tarifs</a>
+        <a href="{{ path('app_achievements') }}">Réalisations</a>
+        <a href="{{ path('app_location') }}">Lieux de déplacements</a>
+        <a href="{{ path('app_appointement') }}">Prendre rendez-vous</a>
+
+        {# Partie User #}
+        {% if app.user %}
+            <span>{{ app.user.civility }} {{ app.user.lastName|title }} {{ app.user.firstName|capitalize }} </span>
+            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        {% else %}
+            <a href="{{ path('app_auth') }}">Se connecter / S'inscrire</a>
+        {% endif %}
+    </nav>
+
+    {% block hook %}
+        <section class="hook" style="background-image: url('{{ asset('images/header-bg.jpg') }}');">
+            <div class="hook-content">
+                <h1>De beaux cheveux ça ne se fait pas par hasard,<br>
+                    ça se fait sur rendez-vous.</h1>
+            </div>
+        </section>
+    {% endblock %}
+</header>
+
+<!-- contenu specifique de chaque page -->
 <main>
     {% block body %}{% endblock %}
 </main>
+
+<!-- FOOTER commun -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Triskell'Hair - Tous droits réservés</p>
+        <div class="footer-links">
+            <a href="{{ path('app_mentions') }}">Mentions légales</a> |
+            <a href="{{ path('app_confidentialite') }}">Politique de confidentialité</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
+

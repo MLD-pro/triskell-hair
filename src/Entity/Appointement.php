@@ -12,6 +12,10 @@ use App\Entity\Service;
 #[ORM\Entity(repositoryClass: AppointementRepository::class)]
 class Appointement
 {
+    public const STATUS_EN_ATTENTE = 'en_attente';
+    public const STATUS_CONFIRME = 'confirme';
+    public const STATUS_TERMINE = 'termine';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -67,6 +71,10 @@ class Appointement
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
+
+    // 🟢 Champ statut (par défaut "en_attente")
+    #[ORM\Column(length: 20)]
+    private ?string $status = 'en_attente';
 
     public function __construct()
     {
@@ -276,4 +284,16 @@ class Appointement
         $this->createdAt = $createdAt;
         return $this;
     }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): static
+    {
+        $this->status = $status;
+        return $this;
+    }
 }
+

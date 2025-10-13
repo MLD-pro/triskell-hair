@@ -9,6 +9,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\ChoiceFilter;
 
 class AppointementCrudController extends AbstractCrudController
 {
@@ -20,6 +23,19 @@ class AppointementCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+
+            // Statut du rendez-vous
+            ChoiceField::new('status', 'Statut')
+                ->setChoices([
+                    '🕓 En attente' => Appointement::STATUS_EN_ATTENTE,
+                    '✅ RDV Confirmé' => Appointement::STATUS_CONFIRME,
+                    '🏁 Terminé' => Appointement::STATUS_TERMINE,
+                ])
+                ->renderAsBadges([
+                    Appointement::STATUS_EN_ATTENTE => 'warning', // Jaune
+                    Appointement::STATUS_CONFIRME => 'success',   // Vert
+                    Appointement::STATUS_TERMINE => 'info',       // Bleu
+                ]),
 
             // Infos client
             TextField::new('civility', 'Civilité'),
@@ -66,6 +82,18 @@ class AppointementCrudController extends AbstractCrudController
             // Message client
             TextareaField::new('message', 'Message')->hideOnIndex(),
         ];
+    }
+
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add(ChoiceFilter::new('status')
+                ->setChoices([
+                    'En attente' => Appointement::STATUS_EN_ATTENTE,
+                    'RDV Confirmé' => Appointement::STATUS_CONFIRME,
+                    'Terminé' => Appointement::STATUS_TERMINE,
+                ])
+            );
     }
 }
 

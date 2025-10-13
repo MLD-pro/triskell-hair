@@ -63,4 +63,9 @@ class Service
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->name ?? ''; // renvoie le nom du service
+    }
 }

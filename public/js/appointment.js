@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const hasMoment = Array.from(momentInputs).some(input => input.checked);
 
             if (dateInput.value && hasMoment) {
-                // ✅ Style vert pour le champ date
+                // Style vert pour le champ date
                 dateInput.style.border = "2px solid green";
                 dateInput.style.backgroundColor = "#e6ffe6";
 
-                // ✅ Style vert pour les cases cochées
+                // Style vert pour les cases cochées
                 momentInputs.forEach(input => {
                     if (input.checked) {
                         input.parentElement.style.color = "green"; // texte en vert
@@ -46,7 +46,29 @@ document.addEventListener("DOMContentLoaded", function () {
             width: '100%' // occupe toute la largeur du champ
         });
     }
+
+    // --- Fermeture manuelle du message flash + centrage pour mon message popup ---
+    const flashMessages = document.querySelectorAll(".flash-popup");
+
+    flashMessages.forEach(msg => {
+        // Centrage dynamique
+        msg.style.position = "fixed";
+        msg.style.top = "50%";
+        msg.style.left = "50%";
+        msg.style.transform = "translate(-50%, -50%)";
+        msg.style.zIndex = "2000";
+        msg.style.cursor = "pointer";
+
+        // Fermeture manuelle au clic
+        msg.addEventListener("click", () => {
+            msg.style.transition = "opacity 0.4s, transform 0.4s";
+            msg.style.opacity = "0";
+            msg.style.transform = "translate(-50%, -60%)";
+            setTimeout(() => msg.remove(), 400);
+        });
+    });
 });
+
 
 
 

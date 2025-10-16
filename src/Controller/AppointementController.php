@@ -43,8 +43,6 @@ class AppointementController extends AbstractController
             //  Envoi du mail automatique avec PHPMailer
             try {
                 $mail = new PHPMailer(true);
-                $mail->SMTPDebug = 2; // 🔍 affiche les détails de la connexion SMTP
-                $mail->Debugoutput = 'error_log'; // 🔍 envoie les logs vers error_log()
 
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
@@ -54,7 +52,7 @@ class AppointementController extends AbstractController
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
-                // Désactive la vérification SSL (utile en local)
+                // Désactive la vérification SSL (utile en local) juste en mode dev pour la prod il faut que je l'enlève
                 $mail->SMTPOptions = [
                     'ssl' => [
                         'verify_peer' => false,
@@ -82,13 +80,13 @@ class AppointementController extends AbstractController
 
                 $mail->send();
             } catch (Exception $e) {
-                dd('Erreur PHPMailer : ' . $mail->ErrorInfo);
+                // On logue l’erreur sans interrompre le site
+                error_log('Erreur PHPMailer : ' . $mail->ErrorInfo);
             }
 
-            // Message de confirmation
+            // Message de confirmation utilisateur
             $this->addFlash('success', 'Votre demande de rendez-vous a bien été envoyée. Vous serez contacté rapidement.');
 
-            // Redirection vers la même page
             return $this->redirectToRoute('app_appointement');
         }
 

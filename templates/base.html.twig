@@ -47,6 +47,18 @@
     {% endblock %}
 </header>
 
+<!-- MESSAGES FLASH GLOBAUX (style pop-up) -->
+<div class="flash-popup-container">
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-popup {{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+
 <!-- contenu specifique de chaque page -->
 <main>
     {% block body %}{% endblock %}

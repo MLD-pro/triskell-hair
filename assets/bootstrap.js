@@ -1,5 +1,11 @@
-import { startStimulusApp } from '@symfony/stimulus-bundle';
+// assets/bootstrap.js
 
-const app = startStimulusApp();
-// register any custom, 3rd party controllers here
-// app.register('some_controller_name', SomeImportedController);
+// Initialisation propre sans Stimulus Bundle
+import { Application } from "@hotwired/stimulus";
+
+const app = Application.start();
+console.log("Stimulus actif sans @symfony/stimulus-bundle (version npm).");
+
+// Ajouter les contrôleurs ici plus tard, ex. :
+// app.register("example", ExampleController);
+

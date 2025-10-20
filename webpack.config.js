@@ -59,7 +59,7 @@ Encore
     // enables Sass/SCSS support (on active déjà pour plus tard)
     .enableSassLoader()
 
-    // 🔹 copie automatiquement toutes les images depuis assets/images vers public/build/images
+    // copie automatiquement toutes mes images depuis assets/images vers public/build/images
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[ext]'

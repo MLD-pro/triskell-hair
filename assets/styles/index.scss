@@ -1,0 +1,10 @@
+/*
+ * Fichier principal SCSS
+ * C’est lui qui m'importe tous mes autres fichiers SCSS.
+ * Il est ensuite compilé par Webpack en un seul fichier CSS global.
+ */
+
+@import 'variables';
+@import 'base';
+@import 'layout';
+@import 'components';

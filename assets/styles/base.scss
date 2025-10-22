@@ -2,3 +2,29 @@
  * Contient les styles de base du site.
  * Sert à définir les styles généraux (reset, typographie globale, liens, balises HTML).
  */
+
+/* Styles de base généraux */
+
+body {
+    font-family: $font-main;
+    color: $color-text;
+    background-color: $color-primary;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: $font-secondary;
+    color: $color-dark;
+}
+
+a {
+    color: $color-text;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

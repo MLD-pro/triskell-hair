@@ -1,0 +1,208 @@
+/*
+ * Styles spécifiques à la page d'accueil
+ */
+
+/* === CONTENEUR PRINCIPAL === */
+.home-content {
+    background-color: #f6e9c5;
+    padding: 4rem 1.5rem 6rem;
+    text-align: center;
+
+    h2 {
+        font-size: 2rem;
+        color: #3a2c1a;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    p {
+        max-width: 750px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #4d3b24;
+    }
+}
+
+/* === SECTION À PROPOS === */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 4rem auto;
+    max-width: 1100px;
+    padding: 2rem 3rem;
+    flex-wrap: wrap;
+
+    img {
+        width: 320px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .about-text {
+        max-width: 500px;
+        text-align: left;
+
+        h3 {
+            font-size: 1rem;
+            color: #7c6a47;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.6rem;
+            color: #3a2c1a;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #4d3b24;
+            line-height: 1.6;
+        }
+    }
+}
+
+/* === SECTION ÉTAPES (Comment se déroule le rendez-vous) === */
+.process-section {
+    text-align: center;
+    margin: 5rem 0;
+
+    h3 {
+        font-size: 1.6rem;
+        color: #3a2c1a;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #cba96b;
+        color: white;
+        padding: 0.9rem 1.8rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: #b89250;
+            transform: translateY(-3px);
+        }
+    }
+}
+
+/* === SECTION PRESTATIONS === */
+.services-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 4rem auto;
+    max-width: 1100px;
+    padding: 2rem 3rem;
+    flex-wrap: wrap;
+
+    .services-text {
+        max-width: 500px;
+        text-align: left;
+
+        h3 {
+            font-size: 1.6rem;
+            color: #3a2c1a;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #cba96b;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #b89250;
+            }
+        }
+    }
+
+    img {
+        width: 300px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
+
+/* === SECTION LOCALISATION === */
+.location-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 4rem auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+
+    iframe {
+        border: none;
+        width: 100%;
+        max-width: 550px;
+        height: 350px;
+        border-radius: 10px;
+    }
+
+    .location-info {
+        max-width: 400px;
+        text-align: left;
+        color: #3a2c1a;
+
+        h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: #7c6a47;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .hours {
+            margin-top: 1rem;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+
+                td {
+                    padding: 4px 0;
+                    font-size: 0.9rem;
+                }
+
+                td:first-child {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+

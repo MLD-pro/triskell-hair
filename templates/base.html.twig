@@ -4,23 +4,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{% block title %}Triskell'Hair{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <script src="{{ asset('js/main.js') }}" defer></script>
+
+    {# CSS compilé avec Webpack Encore #}
+    {{ encore_entry_link_tags('app') }}
+
+    {# JS compilé avec Webpack Encore #}
+    {{ encore_entry_script_tags('app') }}
 </head>
 <body>
 <!-- HEADER -->
 <header class="site-header">
+    <!-- Bande supérieure : logo + burger -->
     <div class="header-top">
-        <!-- Logo cliquable -->
         <a href="{{ path('app_home') }}" class="logo">
-            <img src="{{ asset('images/logo_h.png') }}" alt="Triskell'Hair">Triskell'Hair
+            <img src="{{ asset('images/logo_h.png') }}" alt="Triskell'Hair">
+            Triskell'Hair
         </a>
 
-        <!-- Bouton menu burger  -->
-        <button class="burger" id="burger-btn">☰</button>
+        <button class="burger" id="burger-btn" aria-label="Menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
     </div>
 
-    <!-- Menu navigation (caché/affiché via JS) -->
+    {# Image de fond + phrase d’accroche #}
+    <section class="hook" style="background-image: url('{{ asset('images/header-bg.png') }}');">
+        <div class="hook-content">
+            <h1>
+                De beaux cheveux ça ne se fait pas par hasard,<br>
+                ça se fait sur rendez-vous.
+            </h1>
+        </div>
+    </section>
+
+    {# Overlay et menu latéral #}
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <nav class="nav-menu" id="nav-menu">
         <a href="{{ path('app_home') }}">Page d'accueil</a>
         <a href="{{ path('app_services') }}">Prestations & tarifs</a>
@@ -28,26 +48,17 @@
         <a href="{{ path('app_location') }}">Lieux de déplacements</a>
         <a href="{{ path('app_appointement') }}">Prendre rendez-vous</a>
 
-        {# Partie User #}
         {% if app.user %}
-            <span>{{ app.user.civility }} {{ app.user.lastName|title }} {{ app.user.firstName|capitalize }} </span>
+            <span>{{ app.user.civility }} {{ app.user.lastName|title }} {{ app.user.firstName|capitalize }}</span>
             <a href="{{ path('app_logout') }}">Se déconnecter</a>
         {% else %}
             <a href="{{ path('app_auth') }}">Se connecter / S'inscrire</a>
         {% endif %}
     </nav>
-
-    {% block hook %}
-        <section class="hook" style="background-image: url('{{ asset('images/header-bg.jpg') }}');">
-            <div class="hook-content">
-                <h1>De beaux cheveux ça ne se fait pas par hasard,<br>
-                    ça se fait sur rendez-vous.</h1>
-            </div>
-        </section>
-    {% endblock %}
 </header>
 
-<!-- MESSAGES FLASH GLOBAUX (style pop-up) -->
+
+<!-- MESSAGES FLASH -->
 <div class="flash-popup-container">
     {% for label, messages in app.flashes %}
         {% for message in messages %}
@@ -58,22 +69,74 @@
     {% endfor %}
 </div>
 
-
-<!-- contenu specifique de chaque page -->
+<!-- CONTENU PAGE -->
 <main>
     {% block body %}{% endblock %}
 </main>
 
-<!-- FOOTER commun -->
+<!-- FOOTER -->
 <footer class="site-footer">
-    <div class="footer-content">
-        <p>&copy; 2025 Triskell'Hair - Tous droits réservés</p>
-        <div class="footer-links">
-            <a href="{{ path('app_mentions') }}">Mentions légales</a> |
-            <a href="{{ path('app_confidentialite') }}">Politique de confidentialité</a>
+    <div class="footer-container">
+        <!-- Bloc logo -->
+        <div class="footer-logo">
+            <img src="{{ asset('images/logo_h.png') }}" alt="Triskell'Hair">
+            <p>Triskell'Hair</p>
         </div>
+
+        <!-- Bloc Liens rapides -->
+        <div class="footer-links">
+            <h3>Lien rapide</h3>
+            <ul>
+                <li><a href="{{ path('app_home') }}">Page d'accueil</a></li>
+                <li><a href="{{ path('app_services') }}">À propos</a></li>
+                <li><a href="{{ path('app_services') }}">Prestations tarifs</a></li>
+                <li><a href="{{ path('app_location') }}">Lieux de déplacement</a></li>
+                <li><a href="{{ path('app_achievements') }}">Réalisations</a></li>
+                <li>
+                    {% if app.user %}
+                        <a href="{{ path('app_logout') }}">Mon compte</a>
+                    {% else %}
+                        <a href="{{ path('app_auth') }}">S'inscrire</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bloc Politique -->
+        <div class="footer-legal">
+            <h3>Politique de confidentialité</h3>
+            <ul>
+                <li><a href="{{ path('app_mentions') }}">Mentions légales</a></li>
+                <li><a href="{{ path('app_confidentialite') }}">Politique de confidentialité</a></li>
+                <li><a href="#">CGU</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="#">Vie privée</a></li>
+            </ul>
+        </div>
+
+        <!-- Bloc Réseaux -->
+        <div class="footer-socials">
+            <p>Réseaux sociaux :</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Triskell'Hair. Tous droits réservés.</p>
     </div>
 </footer>
 </body>
 </html>
+
+
 

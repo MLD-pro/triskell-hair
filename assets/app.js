@@ -7,6 +7,9 @@ import './bootstrap.js'; /* charge le stimulus qui est un framework inclus par s
  * This file will be included onto the page via the importmap() Twig function,
  * which should already be in your base.html.twig.
  */
+import '@fortawesome/fontawesome-free/css/all.min.css'; /* Import de Font Awesome pour les icônes des réseaux sociaux */
+import '@fortawesome/fontawesome-free/js/all.min.js';
+
 import './styles/index.scss'; /* Import du fichier principal SCSS qui regroupe tout mon design  */
 
 // Import de les scripts front-end specifiques

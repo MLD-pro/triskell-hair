@@ -7,19 +7,19 @@
 
 body {
     font-family: $font-main;
-    color: $color-text;
+    color: $color-dark;
     background-color: $color-primary;
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3 {
-    font-family: $font-secondary;
+    font-family: $font-main;
     color: $color-dark;
 }
 
 a {
-    color: $color-text;
+    color: $color-dark;
     text-decoration: none;
 }
 

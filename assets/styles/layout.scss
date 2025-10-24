@@ -38,12 +38,12 @@ body {
     align-items: center;
     gap: 0.5rem;
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 2rem;
     text-decoration: none;
 }
 
 .logo img {
-    width: 35px;
+    width: 60px;
     height: auto;
 }
 
@@ -159,62 +159,156 @@ body {
     visibility: visible;
 }
 
-/* === FOOTER === */
+/* === FOOTER FINAL === */
 .site-footer {
-    background-color: #f6e9c5;
-    color: #3a2c1a;
-    padding: 3rem 1rem;
-    border-top: 1px solid #d8cda8;
-    text-align: center;
+    background-color: $color-primary;
+    color: $color-dark;
+    font-family: $font-main;
+    padding: 3rem 2rem 1.5rem;
 }
 
+/* Grille principale du footer */
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: start;
+    max-width: 1150px;
+    margin: 0 auto;
+    column-gap: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
 }
 
-.footer-logo img {
-    width: 50px;
+/* === Bloc logo === */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-self: start;
+    transform: translateY(6px);
+
+    img {
+        width: 52px;
+        height: auto;
+    }
+
+    p {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $color-dark;
+        margin: 0;
+        line-height: 1;
+    }
 }
 
+/* === Titres des colonnes === */
+.footer-links h3,
+.footer-legal h3,
+.footer-socials p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $color-dark;
+}
+
+/* === Liens === */
 .footer-links ul,
 .footer-legal ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .footer-links a,
 .footer-legal a {
-    color: #3a2c1a;
     text-decoration: none;
+    color: $color-dark;
+    font-size: 0.95rem;
+    line-height: 1.7;
     transition: color 0.3s ease;
 
     &:hover {
-        color: #cba96b;
+        color: $color-accent;
     }
 }
 
-/* === RÉSEAUX SOCIAUX === */
+/* === Réseaux sociaux === */
+.footer-socials {
+    align-self: start;
+}
+
 .footer-socials .social-icons {
     display: flex;
-    justify-content: center;
     gap: 1rem;
-}
+    margin-top: 1rem;
 
-.footer-socials i {
-    font-size: 1.4rem;
-    color: #3a2c1a;
-    transition: color 0.3s ease;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid $color-dark;
+        border-radius: 8px;
+        transition: all 0.3s ease;
 
-    &:hover {
-        color: #cba96b;
+        i {
+            color: $color-dark;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        &:hover {
+            border-color: $color-accent;
+
+            i {
+                color: $color-accent;
+            }
+        }
     }
 }
 
+/* === Copyright === */
 .footer-bottom {
     margin-top: 2rem;
-    font-size: 0.9rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba($color-dark, 0.8);
+    border-top: none;
 }
+
+/* Aligne les colonnes “Lien rapide” et “Politique de confidentialité” */
+.footer-links,
+.footer-legal {
+    align-self: start;
+}
+
+
+/* === Responsive === */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+        transform: none;
+    }
+
+    .footer-socials .social-icons {
+        justify-content: center;
+    }
+}
+
+
+
+

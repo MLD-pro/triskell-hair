@@ -184,12 +184,12 @@ body {
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.01rem;
     justify-self: start;
-    transform: translateY(6px);
+    transform: translateY(4px);
 
     img {
-        width: 52px;
+        width: 65px;
         height: auto;
     }
 
@@ -235,35 +235,34 @@ body {
 
 /* === Réseaux sociaux === */
 .footer-socials {
-    align-self: start;
-}
-
-.footer-socials .social-icons {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: start;
+    transform: translateY(-0px);
 
-    a {
+    p {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $color-dark;
+        margin-bottom: 1rem;
+    }
+
+    .social-icons {
         display: flex;
         align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border: 1px solid $color-dark;
-        border-radius: 8px;
-        transition: all 0.3s ease;
+        gap: 1rem;
 
-        i {
-            color: $color-dark;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
+        a img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease, opacity 0.3s ease;
 
-        &:hover {
-            border-color: $color-accent;
-
-            i {
-                color: $color-accent;
+            &:hover {
+                transform: scale(1.1);
+                opacity: 0.8;
             }
         }
     }

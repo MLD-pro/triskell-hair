@@ -15,5 +15,6 @@ import './styles/index.scss'; /* Import du fichier principal SCSS qui regroupe t
 // Import de les scripts front-end specifiques
 import './js/main.js';
 import './js/appointment.js';
+import './js/band.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

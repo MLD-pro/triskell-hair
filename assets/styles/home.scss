@@ -24,52 +24,85 @@
     }
 }
 
-/* === SECTION À PROPOS === */
-.about-section {
+/* === Section À propos === */
+.home-section.about {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 3rem;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin: 4rem auto;
-    max-width: 1100px;
-    padding: 2rem 3rem;
-    flex-wrap: wrap;
+    padding: 80px 20px 100px;
 
-    img {
-        width: 320px;
-        height: auto;
-        border-radius: 10px;
-        object-fit: cover;
+    .about-card {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+        max-width: 1750px;
+        width: 100%;
+        overflow: hidden;
+        margin-top: 0px;
+    }
+
+    .about-image {
+        flex: 1 1 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: block;
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+            margin: 55px 0;
+            border-radius: 0;
+        }
     }
 
     .about-text {
-        max-width: 500px;
-        text-align: left;
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 80px;
+        color: #483D3D;
 
         h3 {
-            font-size: 1rem;
-            color: #7c6a47;
+            font-size: 2.75rem;
+            font-weight: 300;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        h4 {
-            font-size: 1.6rem;
-            color: #3a2c1a;
+            color: rgba(72, 61, 61, 0.7);
             margin-bottom: 1rem;
         }
 
+        h2 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1.8rem;
+            color: #483D3D;
+        }
+
         p {
-            font-size: 1rem;
-            color: #4d3b24;
-            line-height: 1.6;
+            font-size: 2.5rem;
+            line-height: 1.55;
+            color: rgba(72, 61, 61, 0.9);
+            max-width: 42ch;
         }
     }
+
+    @media (max-width: 900px) {
+        .about-card { flex-direction: column; border-radius: 12px; }
+        .about-image img { width: 100%; margin: 20px 0; }
+        .about-text { padding: 30px 25px; }
+    }
 }
+
+
+
+
+
 
 /* === SECTION ÉTAPES (Comment se déroule le rendez-vous) === */
 .process-section {

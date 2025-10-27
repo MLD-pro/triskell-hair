@@ -2,3 +2,51 @@
  * Contient les composants réutilisables du site :
  * boutons, formulaires, cartes, popups, messages flash, etc.
  */
+
+/* === Bande défilante === */
+.notice-band {
+    background: $color-accent;
+    margin-top: 70px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    border-top: 1px solid rgba($color-dark, .12);
+    border-bottom: 1px solid rgba($color-dark, .12);
+    padding: 1rem 0;
+
+    .band {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .scrolling-strip {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 4rem;
+        white-space: nowrap;
+        will-change: transform;
+        padding: 1rem 0;
+        transform: translateX(0);
+    }
+
+    .band-item {
+        color: #483D3D;
+        text-decoration: none;
+        font-family: $font-main;
+        font-weight: 380;
+        font-size: 1.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: opacity 0.2s ease;
+
+        &:hover { opacity: 0.85; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .notice-band .scrolling-strip { transition: none; }
+}
+
+

@@ -60,8 +60,19 @@
     </nav>
 </header>
 
+{# BANDE DÉFILANTE #}
+<section class="notice-band" role="region" aria-label="Annonce">
+    <div class="band">
+        <div class="scrolling-strip" id="scrolling-strip">
+            <a class="band-item" href="{{ path('app_appointement') }}">DEMANDER UNE RÉSERVATION&nbsp;!</a>
+            <a class="band-item" href="{{ path('app_appointement') }}">DEMANDER UNE RÉSERVATION&nbsp;!</a>
+            <a class="band-item" href="{{ path('app_appointement') }}">DEMANDER UNE RÉSERVATION&nbsp;!</a>
+        </div>
+    </div>
+</section>
 
-<!-- MESSAGES FLASH -->
+
+<!-- MESSAGES FLASH pour les messages temporaires -->
 <div class="flash-popup-container">
     {% for label, messages in app.flashes %}
         {% for message in messages %}
@@ -91,10 +102,11 @@
             <h3>Lien rapide</h3>
             <ul>
                 <li><a href="{{ path('app_home') }}">Page d'accueil</a></li>
-                <li><a href="{{ path('app_services') }}">À propos</a></li>
+                <li><a href="{{ path('app_home') }}">À propos</a></li>                      <! revoir cette partie car cela doit renvoyer au niveau du block a propos>
                 <li><a href="{{ path('app_services') }}">Prestations tarifs</a></li>
                 <li><a href="{{ path('app_location') }}">Lieux de déplacement</a></li>
                 <li><a href="{{ path('app_achievements') }}">Réalisations</a></li>
+                <li><a href="{{ path('app_appointement') }}">Prendre rendez-vous</a></li>
                 <li>
                     {% if app.user %}
                         <a href="{{ path('app_logout') }}">Mon compte</a>

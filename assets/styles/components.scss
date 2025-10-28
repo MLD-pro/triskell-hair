@@ -49,4 +49,24 @@
     .notice-band .scrolling-strip { transition: none; }
 }
 
+/* === Séparateur ciseaux === */
+.separator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+
+    span {
+        display: inline-block;
+        width: 95vw; /* prend 90 % de la largeur de la fenêtre */
+        max-width: 1800px; /* évite d’être trop grand sur écran ultra large */
+        height: 100px;
+        background: url('../images/separateur.png') center no-repeat;
+        background-size: contain;
+    }
+}
+
+
+
 

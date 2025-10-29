@@ -1,0 +1,264 @@
+/*
+ * Styles de la page "Tarifs et prestations"
+ */
+
+/* === Bandeau d’intro === */
+.intro-banner {
+    background: $color-accent;
+    color: $color-white;
+    text-align: center;
+    padding: 120px 1rem 110px;
+    margin-top: 80px;
+    margin-bottom: 95px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
+
+    h1 {
+        margin: 0 0 1.8rem 0;
+        font-weight: 700;
+        font-size: 3rem;
+        letter-spacing: 0.03em;
+        color: $color-white;
+    }
+
+    p {
+        margin: 0.8rem 0;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        opacity: 0.95;
+    }
+}
+
+
+/* === Sections tarifs (cartes blanches) === */
+.pricing-section {
+    display: flex;
+    justify-content: center;
+    padding: 18px 12px 22px;
+}
+
+.pricing-card {
+    width: 100%;
+    max-width: 1100px;
+    background: $color-white;
+    border-radius: 18px;
+    padding: 28px 26px;
+
+    h2 {
+        text-align: center;
+        color: $color-dark;
+        margin: 0 0 18px 0;
+        font-weight: 600;
+        font-size: 1.15rem;
+    }
+
+    h3 {
+        text-align: center;
+        color: $color-dark;
+        margin: 22px 0 12px;
+        font-weight: 600;
+        font-size: 1.05rem;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: baseline;
+            gap: .75rem;
+            padding: .42rem 0;
+            font-size: .95rem;
+            color: rgba($color-dark, .95);
+
+            .service-name {
+                white-space: nowrap;
+            }
+
+            .dots {
+                flex: 1 1 auto;
+                height: 1px;
+                transform: translateY(-2px);
+                background-image: radial-gradient(
+                        rgba($color-dark, .35) 1px,
+                        transparent 1px
+                );
+                background-size: 6px 1px;
+                background-repeat: repeat-x;
+                background-position: left center;
+            }
+
+            .service-price {
+                white-space: nowrap;
+                font-variant-numeric: tabular-nums;
+            }
+        }
+    }
+}
+
+/* === Bloc double-carte (Coordonnées + prendre rdv) === */
+.after-pricing-rdv {
+    display: flex;
+    justify-content: center;
+    padding: 10px 12px 28px;
+
+    .double-card {
+        width: 100%;
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+
+    .card-box {
+        background: $color-gold-light;
+        border-radius: 16px;
+        padding: 22px 22px;
+
+        h3 {
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            font-size: 1rem;
+            color: $color-dark;
+
+            strong {
+                color: $color-accent;
+                margin-right: 6px;
+            }
+        }
+    }
+
+    /* === Carte coordonnées === */
+    .card-box.contact {
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            margin: .35rem 0;
+            font-size: .95rem;
+            color: rgba($color-dark, .95);
+
+            img {
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+            }
+        }
+
+        .intro {
+            margin: .6rem 0 .6rem;
+            line-height: 1.5;
+            color: rgba($color-dark, .9);
+        }
+
+        .hours {
+            list-style: none;
+            margin: .4rem 0 0;
+            padding: 0;
+            border-top: none;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                gap: .75rem;
+                padding: .6rem 0;
+                font-size: .95rem;
+                color: rgba($color-dark, .95);
+                border-bottom: 2px solid $color-accent;
+
+                strong {
+                    font-weight: 600;
+                    color: rgba($color-dark, .95);
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            width: 80%;
+        }
+    }
+
+    /* === Carte prendre rendez-vous === */
+    .card-box.rdv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        h3 {
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .rdv-text {
+            margin: 0 0 16px 0;
+            font-size: .95rem;
+            line-height: 1.5;
+            color: rgba($color-dark, .9);
+            max-width: 36ch;
+        }
+
+        /* Le bouton */
+        .btn-primary {
+            display: inline-block;
+            background-color: $color-gold-light;
+            color: #483D3D;
+            font-family: $font-main;
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .95rem 1.8rem;
+            border-radius: 999px;
+            box-shadow: $shadow-hover;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform .25s ease;
+
+            &:before {
+                content: "";
+                position: absolute;
+                inset: 0 100% 0 auto;
+                background: rgba(255,255,255,.25);
+                transition: inset .35s ease;
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+                &:before { inset: 0 0 0 auto; }
+            }
+
+            &:active {
+                transform: translateY(0);
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 992px) {
+    .pricing-card { padding: 24px 20px; }
+
+    .after-pricing-rdv {
+        .double-card {
+            grid-template-columns: 1fr;
+            gap: 18px;
+            max-width: 900px;
+        }
+        .card-box { padding: 18px; }
+        .card-box.contact .hours { width: 92%; }
+    }
+}
+
+@media (max-width: 600px) {
+    .after-pricing-rdv {
+        padding: 8px 10px 26px;
+        .card-box { border-radius: 14px; }
+    }
+}
+
+

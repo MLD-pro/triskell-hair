@@ -4,46 +4,133 @@
 
 {% block body %}
 
-    <div class="intro-banner">
-    <h1>Prestations & tarifs</h1>
-    <p>Des prestations de qualité professionnelle dans le confort de votre domicile.</p>
-    <p>Pour toute la famille, du lundi au samedi.</p>
-    </div>
+    <!-- === Bannière d’intro === -->
+    <section class="intro-banner">
+        <h1>Tarifs et prestations</h1>
+        <p>Des prestations de qualité professionnelle dans le confort de votre domicile.</p>
+        <p>Pour toute la famille, du lundi au samedi.</p>
+    </section>
 
-    <h2>Hommes</h2>
-    <ul>
-        {% for service in services %}
-            {% if service.category == 'Hommes' %}
-                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="separator"><span></span></div>
 
-    <h2>Femmes</h2>
-    <ul>
-        {% for service in services %}
-            {% if service.category == 'Femmes' %}
-                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <!-- === Section Hommes === -->
+    <section class="pricing-section">
+        <div class="pricing-card">
+            <h2>Hommes</h2>
+            <ul>
+                {% for service in services %}
+                    {% if service.category == 'Hommes' %}
+                        <li>
+                            <span class="service-name">{{ service.name }}</span>
+                            <span class="dots"></span>
+                            <span class="service-price">{{ service.price|number_format(2, ',', ' ') }} €</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 
-    <h2>Colorations</h2>
-    <ul>
-        {% for service in services %}
-            {% if service.category == 'Colorations' %}
-                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="separator"><span></span></div>
 
-    <h2>Enfants</h2>
-    <ul>
-        {% for service in services %}
-            {% if service.category == 'Enfants' %}
-                <li>{{ service.name }} — {{ service.price|number_format(2, ',', ' ') }} €</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <!-- === Section Femmes + Colorations === -->
+    <section class="pricing-section">
+        <div class="pricing-card">
+            <h2>Femmes</h2>
+            <ul>
+                {% for service in services %}
+                    {% if service.category == 'Femmes' %}
+                        <li>
+                            <span class="service-name">{{ service.name }}</span>
+                            <span class="dots"></span>
+                            <span class="service-price">{{ service.price|number_format(2, ',', ' ') }} €</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+            <h3>Colorations</h3>
+            <ul>
+                {% for service in services %}
+                    {% if service.category == 'Colorations' %}
+                        <li>
+                            <span class="service-name">{{ service.name }}</span>
+                            <span class="dots"></span>
+                            <span class="service-price">{{ service.price|number_format(2, ',', ' ') }} €</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <div class="separator"><span></span></div>
+
+    <!-- === Section Enfants === -->
+    <section class="pricing-section">
+        <div class="pricing-card">
+            <h2>Enfants</h2>
+            <ul>
+                {% for service in services %}
+                    {% if service.category == 'Enfants' %}
+                        <li>
+                            <span class="service-name">{{ service.name }}</span>
+                            <span class="dots"></span>
+                            <span class="service-price">{{ service.price|number_format(2, ',', ' ') }} €</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <div class="separator"><span></span></div>
+
+    {# === Bloc double-card : Coordonnées + prendre rdv === #}
+    <section class="after-pricing-rdv">
+    <div class="double-card">
+
+            {# --- Carte 1 : Coordonnées --- #}
+            <div class="card-box contact">
+                <h3><strong>|</strong> Coordonnées</h3>
+
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-phone.png') }}" alt="Téléphone">
+                    06.40.75.81.29
+                </p>
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-mail.png') }}" alt="Email">
+                    triskellhair@gmail.com
+                </p>
+
+                <p class="intro">
+                    Claire Perven, coiffeuse à domicile.<br>
+                    Dans une zone de 30 km autour de Quimperlé.
+                </p>
+
+                <ul class="hours">
+                    <li><strong>Lundi, mardi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Mercredi</strong><span>Fermé</span></li>
+                    <li><strong>Jeudi, vendredi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Samedi</strong><span>9h00–12h00</span></li>
+                    <li><strong>Dimanche</strong><span>Fermé</span></li>
+                </ul>
+            </div>
+
+            {# --- Carte 2 : prendre rdv --- #}
+        <div class="card-box rdv">
+        <h3>Prenez rendez-vous<br> dès maintenant</h3>
+            <p class="rdv-text">
+            Pour prendre rendez-vous, contactez-moi par téléphone
+                    ou cliquez sur le bouton ci-dessous.
+                </p>
+                <a href="{{ path('app_appointement') }}" class="btn-primary">Votre rendez-vous</a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="separator"><span></span></div>
+
 {% endblock %}
 

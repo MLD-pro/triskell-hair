@@ -43,7 +43,7 @@ body {
 }
 
 .logo img {
-    width: 60px;
+    width: 70px;
     height: auto;
 }
 
@@ -169,7 +169,7 @@ body {
     background-color: $color-primary;
     color: $color-dark;
     font-family: $font-main;
-    padding: 3rem 2rem 1.5rem;
+    padding: 1.5rem 2rem 1.5rem;
 }
 
 /* Grille principale du footer */
@@ -181,7 +181,7 @@ body {
     max-width: 1150px;
     margin: 0 auto;
     column-gap: 3rem;
-    padding-top: 1rem;
+    padding-top: 0rem;
     padding-bottom: 0.5rem;
 }
 

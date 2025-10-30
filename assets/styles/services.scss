@@ -33,30 +33,34 @@
 .pricing-section {
     display: flex;
     justify-content: center;
-    padding: 18px 12px 22px;
+    padding: 8px 12px 35px;
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
+
 
 .pricing-card {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1300px;
     background: $color-white;
-    border-radius: 18px;
-    padding: 28px 26px;
+    border-radius: 20px;
+    padding: 38px 45px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 
     h2 {
         text-align: center;
         color: $color-dark;
-        margin: 0 0 18px 0;
+        margin: 0 0 24px 0;
         font-weight: 600;
-        font-size: 1.15rem;
+        font-size: 1.6rem;
     }
 
     h3 {
         text-align: center;
         color: $color-dark;
-        margin: 22px 0 12px;
+        margin: 26px 0 14px;
         font-weight: 600;
-        font-size: 1.05rem;
+        font-size: 1.35rem;
     }
 
     ul {
@@ -67,9 +71,9 @@
         li {
             display: flex;
             align-items: baseline;
-            gap: .75rem;
-            padding: .42rem 0;
-            font-size: .95rem;
+            gap: 1rem;
+            padding: .6rem 0;
+            font-size: 1.15rem;
             color: rgba($color-dark, .95);
 
             .service-name {
@@ -79,12 +83,12 @@
             .dots {
                 flex: 1 1 auto;
                 height: 1px;
-                transform: translateY(-2px);
+                transform: translateY(-1px);
                 background-image: radial-gradient(
                         rgba($color-dark, .35) 1px,
                         transparent 1px
                 );
-                background-size: 6px 1px;
+                background-size: 7px 1px;
                 background-repeat: repeat-x;
                 background-position: left center;
             }
@@ -97,29 +101,38 @@
     }
 }
 
-/* === Bloc double-carte (Coordonnées + prendre rdv) === */
+
+/* === Bloc double-carte (Coordonnées + Prendre rendez-vous) === */
 .after-pricing-rdv {
     display: flex;
     justify-content: center;
-    padding: 10px 12px 28px;
+    padding: 5px 12px 45px;
+    margin-top: 0;
+    margin-bottom: 45px;
+
 
     .double-card {
         width: 100%;
-        max-width: 1100px;
+        max-width: 1300px;
+        background: $color-white;
+        border-radius: 20px;
+        padding: 50px 55px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 22px;
+        gap: 70px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
     .card-box {
-        background: $color-gold-light;
+        background: $color-primary;
         border-radius: 16px;
-        padding: 22px 22px;
+        padding: 28px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 
         h3 {
-            margin: 0 0 12px 0;
+            margin: 0 0 14px 0;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: $color-dark;
 
             strong {
@@ -129,55 +142,84 @@
         }
     }
 
-    /* === Carte coordonnées === */
+    /* === Carte Coordonnées === */
     .card-box.contact {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 80px;
+
+        h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $color-dark;
+
+            strong {
+                color: $color-dark;
+                margin-right: 6px;
+            }
+        }
+
         .contact-line {
             display: flex;
             align-items: center;
-            gap: .55rem;
-            margin: .35rem 0;
-            font-size: .95rem;
-            color: rgba($color-dark, .95);
+            gap: 0.6rem;
+            margin: 0.6rem 0;
+            font-size: 1.1rem;
+            color: rgba($color-dark, 0.95);
 
             img {
-                width: 20px;
-                height: 20px;
+                width: 22px;
+                height: 22px;
                 object-fit: contain;
             }
         }
 
-        .intro {
-            margin: .6rem 0 .6rem;
-            line-height: 1.5;
-            color: rgba($color-dark, .9);
+        /* === Phrases d’intro === */
+        .intro-name,
+        .intro-zone {
+            line-height: 1.6;
+            color: rgba($color-dark, 0.9);
+            font-size: 1.1rem;
+            margin: 0.6rem 0;
         }
 
+        .intro-name {
+            font-weight: 500;
+        }
+
+        .intro-zone {
+            opacity: 0.95;
+        }
+
+        /* === Liste des horaires === */
         .hours {
             list-style: none;
-            margin: .4rem 0 0;
             padding: 0;
+            margin-top: 1rem;
+            width: 90%;
             border-top: none;
 
             li {
                 display: flex;
                 justify-content: space-between;
-                gap: .75rem;
-                padding: .6rem 0;
-                font-size: .95rem;
-                color: rgba($color-dark, .95);
+                align-items: center;
+                font-size: 1.05rem;
+                color: rgba($color-dark, 0.9);
+                padding: 0.65rem 0;
                 border-bottom: 2px solid $color-accent;
 
                 strong {
-                    font-weight: 600;
-                    color: rgba($color-dark, .95);
+                    font-weight: 500;
+                    color: rgba($color-dark, 0.85);
                 }
 
                 &:last-child {
                     border-bottom: none;
                 }
             }
-
-            width: 80%;
         }
     }
 
@@ -190,45 +232,56 @@
         text-align: center;
 
         h3 {
-            line-height: 1.25;
-            margin-bottom: 10px;
+            line-height: 1.3;
+            margin-bottom: 45px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: $color-dark;
         }
 
         .rdv-text {
-            margin: 0 0 16px 0;
-            font-size: .95rem;
-            line-height: 1.5;
+            margin: 0 0 40px 0;
+            font-size: 1.15rem;
+            line-height: 1.7;
             color: rgba($color-dark, .9);
-            max-width: 36ch;
+            max-width: 38ch;
         }
 
-        /* Le bouton */
+        /* === Bouton "Votre rendez-vous" === */
         .btn-primary {
             display: inline-block;
             background-color: $color-gold-light;
             color: #483D3D;
             font-family: $font-main;
             font-weight: 300;
-            font-size: 1rem;
-            padding: .95rem 1.8rem;
-            border-radius: 999px;
+            font-size: 1.35rem;
+            padding: 1.3rem 3rem;
+            border-radius: 50px;
             box-shadow: $shadow-hover;
             text-decoration: none;
+            transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
-            transition: transform .25s ease;
 
             &:before {
                 content: "";
                 position: absolute;
-                inset: 0 100% 0 auto;
-                background: rgba(255,255,255,.25);
-                transition: inset .35s ease;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.25);
+                transition: all 0.4s ease;
             }
 
             &:hover {
-                transform: translateY(-2px);
-                &:before { inset: 0 0 0 auto; }
+                background-color: lighten($color-gold-light, 5%);
+                transform: translateY(-3px);
+                box-shadow: $shadow-hover;
+
+                &:before {
+                    left: 100%;
+                }
             }
 
             &:active {
@@ -241,24 +294,14 @@
 
 /* === Responsive === */
 @media (max-width: 992px) {
-    .pricing-card { padding: 24px 20px; }
-
     .after-pricing-rdv {
         .double-card {
             grid-template-columns: 1fr;
-            gap: 18px;
-            max-width: 900px;
+            gap: 25px;
+            padding: 30px 25px;
         }
-        .card-box { padding: 18px; }
-        .card-box.contact .hours { width: 92%; }
+        .card-box {
+            padding: 22px;
+        }
     }
 }
-
-@media (max-width: 600px) {
-    .after-pricing-rdv {
-        padding: 8px 10px 26px;
-        .card-box { border-radius: 14px; }
-    }
-}
-
-

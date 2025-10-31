@@ -4,9 +4,9 @@
  * Il est ensuite compilé par Webpack en un seul fichier CSS global.
  */
 
-@import 'variables';
-@import 'base';
-@import 'layout';
-@import 'components';
-@import 'home';
-@import 'services';
+@import 'base/variables';
+@import 'base/base';
+@import 'layout/layout';
+@import 'components/components';
+@import 'pages/home';
+@import 'pages/services';

@@ -16,5 +16,9 @@ import './styles/index.scss'; /* Import du fichier principal SCSS qui regroupe t
 import './js/main.js';
 import './js/appointment.js';
 import './js/band.js';
+import './js/location.js';
+
+// Import de la librairie pour la map
+import 'leaflet/dist/leaflet.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

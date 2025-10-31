@@ -62,7 +62,7 @@
         display: inline-block;
         width: clamp(1100px, 92vw, 3000px); /* ✅ auto-ajustement entre 1100 et 3000px */
         height: clamp(70px, 6vw, 120px);    /* ✅ hauteur responsive */
-        background: url('../images/separateur.png') center no-repeat;
+        background: url('../../images/separateur.png') center no-repeat;
         background-size: contain;
     }
 }

@@ -4,51 +4,42 @@
 
 {% block body %}
     <div class="intro-banner">
-    <h1>Lieux de déplacements</h1>
-    <p>Suis-je disponible dans votre ville ou commune ?</p>
+        <h1>Lieux de déplacements</h1>
+        <p>Suis-je disponible dans votre ville ou commune ?</p>
     </div>
 
-    {# Formulaire de recherche #}
-    <h2>Recherche votre ville ou commune</h2>
-    <p>Service de coiffure à domicile dans un rayon de 30km autour de Quimperlé</p>
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Rechercher</button>
-    {{ form_end(form) }}
+    <section class="location-search">
+        <h2>Recherchez votre ville ou commune</h2>
+        <p>Service de coiffure à domicile dans un rayon de 30 km autour de Quimperlé</p>
 
-    {# Résultats de recherche #}
-    {% if locations is not empty %}
-        <h2>Résultats :</h2>
-        <ul>
-            {% for location in locations %}
-                <li>{{ location.city }} ({{ location.zipcode }})</li>
-            {% endfor %}
-        </ul>
-    {% elseif isSubmitted %}
-        <p>Aucun résultat trouvé.</p>
-    {% endif %}
+        <div id="search-message" class="message" style="display:none;"></div>
 
-    {# Conteneur de la carte #}
-    <div id="map" style="height: 400px; margin-top:20px;"></div>
+        {{ form_start(form, {'attr': {'id': 'location-form'}}) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn-primary">Rechercher</button>
+        {{ form_end(form) }}
+    </section>
 
-    {# Leaflet CSS et JS #}
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <section class="location-results">
+        {% if locations is not empty %}
+            <h2>Résultats :</h2>
+            <ul>
+                {% for location in locations %}
+                    <li>{{ location.city }} ({{ location.zipcode }})</li>
+                {% endfor %}
+            </ul>
+        {% elseif isSubmitted %}
+            <p>Aucun résultat trouvé.</p>
+        {% endif %}
+    </section>
 
-    <script>
-        // Initialisation de la carte centrée sur Quimperlé
-        var map = L.map('map').setView([47.8667, -3.55], 13);
-
-        // Fond de carte OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Le marqueur sur Quimperlé
-        L.marker([47.8667, -3.55])
-            .addTo(map)
-            .bindPopup("Quimperlé")
-            .openPopup();
-    </script>
-
+    <div id="map" style="height: 450px; margin-top: 40px; border-radius: 12px;"></div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('location') }}
+{% endblock %}
+
+
+

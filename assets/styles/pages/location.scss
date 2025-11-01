@@ -1,0 +1,179 @@
+/*
+ * === Page Lieux de déplacements ===
+ */
+.location-page {
+    display: flex;
+    justify-content: center;
+    padding: 8px 12px 80px;
+    margin-top: 0;
+    margin-bottom: 60px;
+
+    .location-card {
+        position: relative;
+        width: 100%;
+        max-width: 1300px;
+        background: #FFFCF4;
+        border-radius: 20px;
+        padding: 75px 80px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        text-align: center;
+
+        h2 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: $color-dark;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: rgba($color-dark, 0.9);
+            margin-bottom: 70px;
+            line-height: 1.9;
+        }
+
+        form {
+            position: relative;
+            max-width: 960px;
+            margin: 0 auto 100px auto;
+        }
+
+        input,
+        input[type="text"],
+        input[type="search"] {
+            width: 100%;
+            height: 60px;
+            padding: 1.1rem 3rem 1.1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            background: rgba(#B4A37D, 0.24);
+            font-family: $font-main;
+            font-size: 1.05rem;
+            color: rgba(#483D3D, 0.65);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+            transition: all 0.3s ease;
+
+            &::placeholder {
+                color: rgba(#483D3D, 0.65);
+            }
+
+            &:focus {
+                outline: none;
+                background: lighten(rgba(#B4A37D, 0.24), 4%);
+                box-shadow: 0 0 0 3px rgba($color-accent, 0.25);
+            }
+        }
+
+        /* Loupe intégrée */
+        button {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #b4a37d;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: darken(#b4a37d, 10%);
+            }
+
+            i {
+                pointer-events: none;
+            }
+        }
+
+        #map {
+            width: 889px;
+            height: 477px;
+            border: none;
+            margin: 0 auto;
+            margin-top: 25px;
+            border-radius: 12px;
+        }
+
+        /* === Message popup === */
+        .popup-message {
+            position: absolute;
+            top: 370px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FFFCF4;
+            color: #483D3D;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            z-index: 20;
+
+            &.show {
+                opacity: 1;
+                transform: translate(-50%, -10px);
+            }
+
+            &.success {
+                background-color: rgba(#4fb259, 0.85);
+                color: #fff;
+            }
+
+            &.error {
+                background-color: rgba(#b94e4e, 0.9);
+                color: #fff;
+            }
+        }
+    }
+}
+/* === Bannière contact PLEIN ÉCRAN, centrée === */
+.location-contact-banner {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background-color: #B4A37D;
+    color: #FFFCF4;
+    text-align: center;
+    padding: 120px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 80px;
+    margin-bottom: 120px;
+}
+
+/* Bloc interne */
+.location-contact-banner h2 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    color: #FFFCF4;
+}
+
+.location-contact-banner p {
+    font-size: 1.5rem;
+    line-height: 1.9;
+    margin: 0;
+    color: #FFFCF4;
+    opacity: 0.95;
+}
+
+/* Bloc téléphone */
+.location-contact-banner .contact-info {
+    margin-top: 15px;
+}
+
+.location-contact-banner .contact-info p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #FFFCF4;
+}
+
+
+
+

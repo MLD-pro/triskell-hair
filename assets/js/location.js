@@ -8,13 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!form || !mapContainer) return;
 
+    // Supprime complètement l’icône par défaut Leaflet
+    const emptyIcon = L.divIcon({
+        className: 'empty-icon',
+        html: '',
+        iconSize: [0, 0]
+    });
+
     // === Initialisation de la carte Leaflet ===
+    if (mapContainer._leaflet_id) {
+        mapContainer._leaflet_id = null;
+    }
+
     const map = L.map(mapContainer).setView([47.8667, -3.55], 11); // par défaut : Quimperlé
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    let marker = L.marker([47.8667, -3.55]).addTo(map).bindPopup("Quimperlé").openPopup();
+    let marker = L.marker([47.8667, -3.55], { icon: emptyIcon })
+        .addTo(map)
+        .bindPopup("Quimperlé")
+        .openPopup();
+
 
     // === Gestion du formulaire ===
     form.addEventListener('submit', async (e) => {
@@ -31,15 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const data = await response.json();
-            const messageBox = document.getElementById('search-message');
 
-            // Message de réponse
+            // === Gestion du popup message ===
+            const popup = document.getElementById('popup-message');
             if (data.message) {
-                messageBox.textContent = data.message.text;
-                messageBox.className = data.message.type === 'success'
-                    ? 'message success'
-                    : 'message error';
-                messageBox.style.display = 'block';
+                popup.textContent = data.message.text;
+                popup.className = `popup-message ${data.message.type}`;
+                popup.style.display = 'block';
+                popup.classList.add('show');
+
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                    popup.style.display = 'none';
+                }, 8000);
             }
 
             // Déplacement du marqueur si on a des coordonnées
@@ -48,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lon = parseFloat(data.cityCoords.lon);
 
                 map.setView([lat, lon], 12);
-                marker.setLatLng([lat, lon]);
+                marker.setLatLng([lat, lon], { icon: emptyIcon });
                 marker.bindPopup(`${data.locations[0].city} (${data.locations[0].zipcode})`).openPopup();
             }
 
@@ -57,5 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 

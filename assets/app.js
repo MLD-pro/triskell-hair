@@ -17,6 +17,7 @@ import './js/main.js';
 import './js/appointment.js';
 import './js/band.js';
 import './js/location.js';
+import './js/homeMap.js';
 
 // Import de la librairie pour la map
 import 'leaflet/dist/leaflet.css';

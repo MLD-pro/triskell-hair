@@ -9,59 +9,124 @@
         <p>Remplissez ce formulaire, je vous recontacterai pour confirmer l'horaire.</p>
     </div>
 
-    {{ form_start(form) }}
+    <div class="separator"><span></span></div>
 
-    <div style="display:flex; gap:20px;">
-        <!-- Colonne gauche -->
-        <div style="width:48%;">
-            {{ form_row(form.civility) }}
-            {{ form_row(form.lastName) }}
-            {{ form_row(form.email) }}
-            {{ form_row(form.services) }}
+    {# === SECTION FORMULAIRE RDV === #}
+    <section class="appointment-page">
+        <div class="appointment-card">
+
+            {{ form_start(form) }}
+
+            {# --- Double colonne principale --- #}
+            <div class="form-columns">
+                <!-- Colonne gauche : Civilité, Nom, Email, Prestations -->
+                <div class="form-column">
+                    {{ form_row(form.civility) }}
+                    {{ form_row(form.lastName) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.services) }}
+                </div>
+
+                <!-- Colonne droite : Prénom, Téléphone, Dates souhaitées -->
+                <div class="form-column">
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.phone) }}
+
+                    <!-- Choix 1 -->
+                    <div id="date1-block" class="choice-block active">
+                        {{ form_row(form.date1) }}
+                        {{ form_row(form.moment1) }}
+                        <button type="button" class="validate-choice" id="validate-date1">Valider ce choix</button>
+                    </div>
+
+                    <!-- Choix 2 -->
+                    <div id="date2-block" class="choice-block" style="display:none;">
+                        {{ form_row(form.date2) }}
+                        {{ form_row(form.moment2) }}
+                        <button type="button" class="validate-choice" id="validate-date2">Valider ce choix</button>
+                    </div>
+
+                    <!-- Choix 3 -->
+                    <div id="date3-block" class="choice-block" style="display:none;">
+                        {{ form_row(form.date3) }}
+                        {{ form_row(form.moment3) }}
+                        <button type="button" class="validate-choice" id="validate-date3">Valider ce choix</button>
+                    </div>
+                </div>
+            </div>
+
+            {# --- Bloc adresse --- #}
+            <div class="address-block">
+                {{ form_row(form.address) }}
+            </div>
+
+            {# --- Ligne code postal / ville --- #}
+            <div class="form-columns small">
+                <div class="form-column">{{ form_row(form.zipcode) }}</div>
+                <div class="form-column">{{ form_row(form.city) }}</div>
+            </div>
+
+            {# --- Message complémentaire --- #}
+            <div class="message-block">
+                {{ form_row(form.message) }}
+            </div>
+
+            {# --- Bouton d’envoi --- #}
+            <div class="submit-container">
+                <button type="submit" class="btn-primary">Envoyer la demande</button>
+            </div>
+
+            {{ form_end(form) }}
         </div>
+    </section>
 
-        <!-- Colonne droite -->
-        <div style="width:48%;">
-            {{ form_row(form.firstName) }}
-            {{ form_row(form.phone) }}
 
-            <!-- Choix 1 -->
-            <div id="date1-block">
-                {{ form_row(form.date1) }}
-                {{ form_row(form.moment1) }}
-                <button type="button" id="validate-date1">Valider ce choix</button>
+    <div class="separator"><span></span></div>
+
+    {# === Bloc double-card : Coordonnées + prendre rdv === #}
+    <section class="after-pricing-rdv">
+        <div class="double-card">
+
+            {# --- Carte 1 : Coordonnées --- #}
+            <div class="card-box contact">
+                <h3><strong>|</strong> Coordonnées</h3>
+
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-phone.png') }}" alt="Téléphone">
+                    06.40.75.81.29
+                </p>
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-mail.png') }}" alt="Email">
+                    triskellhair@gmail.com
+                </p>
+
+                <p class="intro-line intro-name">Claire Perven, coiffeuse à domicile.</p>
+                <p class="intro-line intro-zone">Dans une zone de 30 km autour de Quimperlé.</p>
+
+                <ul class="hours">
+                    <li><strong>Lundi, mardi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Mercredi</strong><span>Fermé</span></li>
+                    <li><strong>Jeudi, vendredi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Samedi</strong><span>9h00–12h00</span></li>
+                    <li><strong>Dimanche</strong><span>Fermé</span></li>
+                </ul>
             </div>
 
-            <!-- Choix 2 -->
-            <div id="date2-block" style="display:none;">
-                {{ form_row(form.date2) }}
-                {{ form_row(form.moment2) }}
-                <button type="button" id="validate-date2">Valider ce choix</button>
+            {# --- Carte 2 : prendre rdv --- #}
+            <div class="card-box rdv">
+                <h3>Un doute sur le prix<br> d'une prestation</h3>
+                <p class="rdv-text">
+                    Retrouvez toutes les informations
+                    <br>en cliquant sur le bouton
+                    <br> ci-dessous.
+                </p>
+                <a href="{{ path('app_services') }}" class="btn-primary">Tarifs et prestations</a>
             </div>
 
-            <!-- Choix 3 -->
-            <div id="date3-block" style="display:none;">
-                {{ form_row(form.date3) }}
-                {{ form_row(form.moment3) }}
-                <button type="button" id="validate-date3">Valider ce choix</button>
-            </div>
         </div>
-    </div>
+    </section>
 
-    <div style="margin-top:20px;">
-        {{ form_row(form.address) }}
-    </div>
-
-    <div style="display:flex; gap:20px;">
-        <div style="width:48%;">{{ form_row(form.zipcode) }}</div>
-        <div style="width:48%;">{{ form_row(form.city) }}</div>
-    </div>
-
-    <div style="margin-top:20px;">
-        {{ form_row(form.message) }}
-    </div>
-
-    <button type="submit">Envoyer la demande</button>
+    <div class="separator"><span></span></div>
 
     {{ form_end(form) }}
 
@@ -78,6 +143,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"/>
 
 {% endblock %}
+
 
 
 

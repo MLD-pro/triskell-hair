@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $(serviceSelect).select2({
             placeholder: "Choisissez les prestations que vous souhaitez",
             allowClear: true,
-            width: '100%'
+            width: '100%',
         });
     }
 

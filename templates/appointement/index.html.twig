@@ -17,11 +17,15 @@
 
             {{ form_start(form) }}
 
+            {# --- Civilité seule au-dessus --- #}
+            <div class="form-group civility">
+                {{ form_row(form.civility) }}
+            </div>
+
             {# --- Double colonne principale --- #}
             <div class="form-columns">
-                <!-- Colonne gauche : Civilité, Nom, Email, Prestations -->
+                <!-- Colonne gauche : Nom, Email, Prestations -->
                 <div class="form-column">
-                    {{ form_row(form.civility) }}
                     {{ form_row(form.lastName) }}
                     {{ form_row(form.email) }}
                     {{ form_row(form.services) }}
@@ -73,7 +77,7 @@
 
             {# --- Bouton d’envoi --- #}
             <div class="submit-container">
-                <button type="submit" class="btn-primary">Envoyer la demande</button>
+                <button type="submit" class="btn-primary">Envoyer ma demande</button>
             </div>
 
             {{ form_end(form) }}

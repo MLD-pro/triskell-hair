@@ -5,56 +5,126 @@
 {% block body %}
 
     <div class="intro-banner">
-    <h1>Bienvenue</h1>
-    <p>Connectez-vous ou créez un compte pour prendre rendez-vous</p>
+        <h1>Bienvenue</h1>
+        <p>Connectez-vous ou créez un compte pour prendre rendez-vous</p>
     </div>
 
-    <h1>Se connecter</h1>
+    <div class="separator"><span></span></div>
 
-    {% if error %}
-        <div style="color: red;">
-            {{ error.messageKey|trans(error.messageData, 'security') }}
+    {# === Bloc global : Connexion + Inscription === #}
+    <div class="auth-page">
+
+        {# === Bloc Connexion === #}
+        <section class="auth-section login-section">
+            <div class="auth-card login-card">
+                <div class="auth-header">
+                    <div class="auth-icon">
+                        <img src="{{ asset('images/icon-user-co.png') }}" alt="Icône utilisateur">
+                    </div>
+                    <h2>Connexion</h2>
+                </div>
+
+                {% if error %}
+                    <div class="auth-error">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+
+                <form method="post" action="{{ path('app_login') }}" class="auth-form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ last_username }}" placeholder="Votre email" required autofocus>
+
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+
+                    <div class="auth-remember">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                        <label for="remember_me">Se souvenir de moi</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="separator"><span></span></div>
+
+        {# === Bloc Inscription === #}
+        <section class="auth-section register-section">
+            <div class="auth-card register-card">
+                <div class="auth-header">
+                    <div class="auth-icon">
+                        <img src="{{ asset('images/icon-user-sub.png') }}" alt="Icône utilisateur">
+                    </div>
+                    <h2>S’inscrire</h2>
+                </div>
+
+                {{ form_start(registrationForm, {'action': path('app_auth'), 'attr': {'class': 'auth-form'}}) }}
+                {{ form_row(registrationForm.civility) }}
+                {{ form_row(registrationForm.lastName) }}
+                {{ form_row(registrationForm.firstName) }}
+                {{ form_row(registrationForm.address) }}
+                {{ form_row(registrationForm.city) }}
+                {{ form_row(registrationForm.zipcode) }}
+                {{ form_row(registrationForm.addressComplement) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.phone) }}
+                {{ form_row(registrationForm.plainPassword.first) }}
+                {{ form_row(registrationForm.plainPassword.second) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button type="submit" class="btn-primary">Créer mon compte</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </section>
+    </div>
+
+
+    <div class="separator"><span></span></div>
+
+
+    {# === Bloc double-card : Coordonnées + prendre rdv === #}
+    <section class="after-pricing-rdv">
+        <div class="double-card">
+
+            {# --- Carte 1 : Coordonnées --- #}
+            <div class="card-box contact">
+                <h3><strong>|</strong> Coordonnées</h3>
+
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-phone.png') }}" alt="Téléphone">
+                    06.40.75.81.29
+                </p>
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-mail.png') }}" alt="Email">
+                    triskellhair@gmail.com
+                </p>
+
+                <p class="intro-line intro-name">Claire Perven, coiffeuse à domicile.</p>
+                <p class="intro-line intro-zone">Dans une zone de 30 km autour de Quimperlé.</p>
+
+                <ul class="hours">
+                    <li><strong>Lundi, mardi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Mercredi</strong><span>Fermé</span></li>
+                    <li><strong>Jeudi, vendredi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Samedi</strong><span>9h00–12h00</span></li>
+                    <li><strong>Dimanche</strong><span>Fermé</span></li>
+                </ul>
+            </div>
+
+            {# --- Carte 2 : prendre rdv --- #}
+            <div class="card-box rdv">
+                <h3>Prenez rendez-vous<br> dès maintenant</h3>
+                <p class="rdv-text">
+                    Pour prendre rendez-vous, contactez-moi par téléphone
+                    ou cliquez sur le bouton ci-dessous.
+                </p>
+                <a href="{{ path('app_appointement') }}" class="btn-primary">Votre rendez-vous</a>
+            </div>
+
         </div>
-    {% endif %}
+    </section>
 
-    <form method="post" action="{{ path('app_login') }}">
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" value="{{ last_username }}" placeholder="Entrez votre email" required autofocus>
-
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
-
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-        <div>
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on">
-            <label for="remember_me">Se souvenir de moi</label>
-        </div>
-
-        <button type="submit">Connexion</button>
-    </form>
-
-    <hr>
-
-    <h1>S'inscrire</h1>
-
-    {{ form_start(registrationForm, {'action': path('app_auth')}) }}
-
-    {{ form_row(registrationForm.civility) }}
-    {{ form_row(registrationForm.lastName) }}
-    {{ form_row(registrationForm.firstName) }}
-    {{ form_row(registrationForm.address) }}
-    {{ form_row(registrationForm.city) }}
-    {{ form_row(registrationForm.zipcode) }}
-    {{ form_row(registrationForm.addressComplement) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.phone) }}
-    {{ form_row(registrationForm.plainPassword.first) }}
-    {{ form_row(registrationForm.plainPassword.second) }}
-    {{ form_row(registrationForm.agreeTerms) }}
-
-    <button type="submit">Créer mon compte</button>
-
-    {{ form_end(registrationForm) }}
+    <div class="separator"><span></span></div>
 {% endblock %}
 

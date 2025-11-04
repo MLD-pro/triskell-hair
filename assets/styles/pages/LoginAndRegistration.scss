@@ -1,0 +1,291 @@
+/*
+ * === Page Connexion / Inscription ===
+ */
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff8e0; /* même fond doux */
+    padding: 80px 12px 100px;
+
+    .auth-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 80px;
+
+        .auth-card {
+            background: $color-white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            padding: 70px 80px;
+            width: 100%;
+            max-width: 1300px;
+            text-align: left;
+        }
+    }
+}
+
+/* === Éléments communs (Connexion / Inscription) === */
+.auth-section {
+    .auth-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        text-align: center;
+
+        .auth-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #483D3D;
+            font-weight: 600;
+            font-family: $font-main;
+        }
+    }
+
+    .btn-primary {
+        background: $color-gold-light;
+        color: #483D3D;
+        font-size: 1.5rem;
+        font-weight: 400;
+        border: none;
+        border-radius: 50px;
+        padding: 15px 45px;
+        cursor: pointer;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        margin: 30px auto 0 auto;
+
+        &:hover {
+            background: darken($color-gold-light, 4%);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+/* === Style de base des champs === */
+.auth-form {
+    label {
+        display: block;
+        font-weight: 600;
+        color: #483D3D;
+        font-size: 1rem;
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+
+    input,
+    select,
+    textarea {
+        background: rgba(#666666, 0.08);
+        border: none;
+        border-radius: 12px;
+        padding: 13px 18px;
+        font-size: 1rem;
+        color: #483D3D;
+        font-family: $font-main;
+        width: 100%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            background: rgba(#666666, 0.15);
+            box-shadow: 0 0 0 3px rgba($color-accent, 0.25);
+        }
+
+        &::placeholder {
+            color: rgba(#483D3D, 0.55);
+        }
+    }
+}
+
+/* === Section Connexion === */
+.login-section {
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        label,
+        input {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        label {
+            text-align: left;
+            margin-bottom: 2px;
+        }
+
+        input[type="email"] {
+            margin-bottom: 20px;
+        }
+
+        label + input {
+            margin-top: 0;
+        }
+
+        /* Se souvenir de moi */
+        .auth-remember {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 6px;
+            justify-content: flex-start;
+
+            input[type="checkbox"] {
+                accent-color: $color-accent;
+                width: 18px;
+                height: 18px;
+                margin: 0;
+            }
+
+            label {
+                font-weight: 500;
+                color: #483D3D;
+                font-size: 1rem;
+                margin: 0;
+            }
+        }
+    }
+}
+
+/* === Section Inscription === */
+.register-section {
+    .auth-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        column-gap: 60px;
+        row-gap: 25px;
+        align-items: start;
+        justify-items: stretch;
+        max-width: 1100px;
+        margin: 0 auto;
+
+        label,
+        input,
+        select,
+        textarea {
+            max-width: none;
+            width: 100%;
+        }
+
+        /* Civilité */
+        label[for="registration_form_civility"] {
+            grid-column: 1;
+            align-self: center;
+            margin-bottom: 0;
+        }
+
+        #registration_form_civility {
+            grid-column: 2;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+            input[type="radio"] {
+                accent-color: $color-accent;
+                width: 18px;
+                height: 18px;
+                margin: 0 8px 0 0;
+            }
+
+            label {
+                display: inline-flex;
+                align-items: center;
+                font-weight: 600;
+                color: #483D3D;
+                font-size: 1rem;
+                margin: 0 32px 0 0;
+            }
+        }
+
+        /* Colonne gauche */
+        > div:nth-child(2),
+        > div:nth-child(3),
+        > div:nth-child(4),
+        > div:nth-child(5),
+        > div:nth-child(6),
+        > div:nth-child(7) {
+            grid-column: 1;
+        }
+
+        /* Colonne droite alignée */
+        > div:nth-child(8) { grid-column: 2; grid-row: 2; }
+        > div:nth-child(9) { grid-column: 2; grid-row: 3; }
+        > div:nth-child(10) { grid-column: 2; grid-row: 4; }
+        > div:nth-child(11) { grid-column: 2; grid-row: 5; }
+
+        /* Conditions avec checkbox à gauche du texte */
+        > div:nth-child(12) {
+            grid-column: 2;
+            grid-row: 6;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 8px;
+            box-shadow: none;
+
+            input[type="checkbox"] {
+                order: 1;
+                accent-color: $color-accent;
+                width: 18px;
+                height: 18px;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            label {
+                order: 2;
+                font-size: 0.95rem;
+                color: #483D3D;
+                line-height: 1.3;
+                margin: 0;
+                font-weight: 500;
+            }
+        }
+
+        /* Bouton centré */
+        .btn-primary {
+            grid-column: 1 / -1;
+            justify-self: center;
+            margin-top: 30px;
+        }
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 992px) {
+    .register-section .auth-form {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        max-width: 100%;
+    }
+}

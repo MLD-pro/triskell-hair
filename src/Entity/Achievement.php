@@ -19,6 +19,12 @@ class Achievement
     #[ORM\Column(length: 255)]
     private ?string $imageAfter = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $altBefore = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $altAfter = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -32,7 +38,6 @@ class Achievement
     public function setImageBefore(string $imageBefore): static
     {
         $this->imageBefore = $imageBefore;
-
         return $this;
     }
 
@@ -44,7 +49,29 @@ class Achievement
     public function setImageAfter(string $imageAfter): static
     {
         $this->imageAfter = $imageAfter;
+        return $this;
+    }
 
+    public function getAltBefore(): ?string
+    {
+        return $this->altBefore;
+    }
+
+    public function setAltBefore(?string $altBefore): static
+    {
+        $this->altBefore = $altBefore;
+        return $this;
+    }
+
+    public function getAltAfter(): ?string
+    {
+        return $this->altAfter;
+    }
+
+    public function setAltAfter(?string $altAfter): static
+    {
+        $this->altAfter = $altAfter;
         return $this;
     }
 }
+

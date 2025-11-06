@@ -42,6 +42,9 @@
                         <label for="remember_me">Se souvenir de moi</label>
                     </div>
 
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
                     <button type="submit" class="btn-primary">Se connecter</button>
                 </form>
             </div>

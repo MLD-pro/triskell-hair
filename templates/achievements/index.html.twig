@@ -3,28 +3,93 @@
 {% block title %}Réalisations{% endblock %}
 
 {% block body %}
-
     <div class="intro-banner">
-    <h1>Avant / Après</h1>
-    <p>Découvrez quelques transformations réalisées</p>
+        <h1>Avant / Après</h1>
+        <p>Découvrez quelques transformations réalisées</p>
     </div>
 
     <div class="achievements-gallery">
-        {% for achievement in achievements %}
+        {% for achievement in achievements|slice(0, 4) %}
+
+            {# --- Separator au-dessus du bloc --- #}
+            <div class="separator"><span></span></div>
+
             <div class="achievement">
                 <div class="before-after">
                     <div class="before">
-                        <img src="{{ asset('uploads/achievements/' ~ achievement.imageBefore) }}" alt="Avant chignon">
+                        <img
+                            src="{{ asset('uploads/achievements/' ~ achievement.imageBefore) }}"
+                            alt="{{ achievement.altBefore ?: 'Photo avant coiffure' }}"
+                            loading="lazy">
                         <p>Avant</p>
                     </div>
                     <div class="after">
-                        <img src="{{ asset('uploads/achievements/' ~ achievement.imageAfter) }}" alt="Après avec chignon">
+                        <img
+                            src="{{ asset('uploads/achievements/' ~ achievement.imageAfter) }}"
+                            alt="{{ achievement.altAfter ?: 'Photo après coiffure' }}"
+                            loading="lazy">
                         <p>Après</p>
                     </div>
                 </div>
             </div>
+
+            {# --- Separator en dessous du bloc --- #}
+            <div class="separator"><span></span></div>
+
         {% else %}
             <p>Aucune réalisation pour le moment.</p>
         {% endfor %}
     </div>
+
+    <div class="you-want-before-after">
+        <h2>Envie d'un avant / après chez vous ?</h2>
+        <a href="{{ path('app_appointement') }}" class="btn-primary">Votre rendez-vous</a>
+    </div>
+
+    <div class="separator"><span></span></div>
+
+    {# === Bloc double-card : Coordonnées + prendre rdv === #}
+    <section class="after-pricing-rdv">
+        <div class="double-card">
+
+            {# --- Carte 1 : Coordonnées --- #}
+            <div class="card-box contact">
+                <h3><strong>|</strong> Coordonnées</h3>
+
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-phone.png') }}" alt="Téléphone">
+                    06.40.75.81.29
+                </p>
+                <p class="contact-line">
+                    <img src="{{ asset('images/icon-mail.png') }}" alt="Email">
+                    triskellhair@gmail.com
+                </p>
+
+                <p class="intro-line intro-name">Claire Perven, coiffeuse à domicile.</p>
+                <p class="intro-line intro-zone">Dans une zone de 30 km autour de Quimperlé.</p>
+
+                <ul class="hours">
+                    <li><strong>Lundi, mardi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Mercredi</strong><span>Fermé</span></li>
+                    <li><strong>Jeudi, vendredi</strong><span>9h00–18h30</span></li>
+                    <li><strong>Samedi</strong><span>9h00–12h00</span></li>
+                    <li><strong>Dimanche</strong><span>Fermé</span></li>
+                </ul>
+            </div>
+
+            {# --- Carte 2 : prendre rdv --- #}
+            <div class="card-box rdv">
+                <h3>Prenez rendez-vous<br> dès maintenant</h3>
+                <p class="rdv-text">
+                    Pour prendre rendez-vous, contactez-moi par téléphone
+                    ou cliquez sur le bouton ci-dessous.
+                </p>
+                <a href="{{ path('app_appointement') }}" class="btn-primary">Votre rendez-vous</a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="separator"><span></span></div>
+
 {% endblock %}

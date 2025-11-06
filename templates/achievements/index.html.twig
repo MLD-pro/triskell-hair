@@ -8,11 +8,14 @@
         <p>Découvrez quelques transformations réalisées</p>
     </div>
 
+    {# === Galerie des réalisations === #}
     <div class="achievements-gallery">
         {% for achievement in achievements|slice(0, 4) %}
 
-            {# --- Separator au-dessus du bloc --- #}
-            <div class="separator"><span></span></div>
+            {# --- Separator uniquement AVANT sauf pour le premier bloc --- #}
+            {% if not loop.first %}
+                <div class="separator"><span></span></div>
+            {% endif %}
 
             <div class="achievement">
                 <div class="before-after">
@@ -33,13 +36,12 @@
                 </div>
             </div>
 
-            {# --- Separator en dessous du bloc --- #}
-            <div class="separator"><span></span></div>
-
         {% else %}
             <p>Aucune réalisation pour le moment.</p>
         {% endfor %}
     </div>
+
+    <div class="separator"><span></span></div>
 
     <div class="you-want-before-after">
         <h2>Envie d'un avant / après chez vous ?</h2>
@@ -51,8 +53,6 @@
     {# === Bloc double-card : Coordonnées + prendre rdv === #}
     <section class="after-pricing-rdv">
         <div class="double-card">
-
-            {# --- Carte 1 : Coordonnées --- #}
             <div class="card-box contact">
                 <h3><strong>|</strong> Coordonnées</h3>
 
@@ -77,7 +77,6 @@
                 </ul>
             </div>
 
-            {# --- Carte 2 : prendre rdv --- #}
             <div class="card-box rdv">
                 <h3>Prenez rendez-vous<br> dès maintenant</h3>
                 <p class="rdv-text">
@@ -86,10 +85,8 @@
                 </p>
                 <a href="{{ path('app_appointement') }}" class="btn-primary">Votre rendez-vous</a>
             </div>
-
         </div>
     </section>
 
     <div class="separator"><span></span></div>
-
 {% endblock %}

@@ -56,6 +56,35 @@
     }
 }
 
+.before-after {
+    .image-wrapper {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 0; // tu avais retiré les arrondis
+
+        img {
+            width: 100%;
+            max-width: 450px;
+            display: block;
+        }
+
+        .label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(72, 61, 61, 0.6); // gris semi-transparent
+            color: #fff;
+            text-transform: none;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 8px 0;
+            letter-spacing: 1px;
+        }
+    }
+}
 
 
 /* === Bloc “Envie d’un avant / après” — centré et bouton cohérent === */

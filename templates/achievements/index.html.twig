@@ -19,20 +19,27 @@
 
             <div class="achievement">
                 <div class="before-after">
+
                     <div class="before">
-                        <img
-                            src="{{ asset('uploads/achievements/' ~ achievement.imageBefore) }}"
-                            alt="{{ achievement.altBefore ?: 'Photo avant coiffure' }}"
-                            loading="lazy">
-                        <p>Avant</p>
+                        <div class="image-wrapper">
+                            <img
+                                src="{{ asset('uploads/achievements/' ~ achievement.imageBefore) }}"
+                                alt="{{ achievement.altBefore ?: 'Photo avant coiffure' }}"
+                                loading="lazy">
+                            <span class="label">Avant</span>
+                        </div>
                     </div>
+
                     <div class="after">
-                        <img
-                            src="{{ asset('uploads/achievements/' ~ achievement.imageAfter) }}"
-                            alt="{{ achievement.altAfter ?: 'Photo après coiffure' }}"
-                            loading="lazy">
-                        <p>Après</p>
+                        <div class="image-wrapper">
+                            <img
+                                src="{{ asset('uploads/achievements/' ~ achievement.imageAfter) }}"
+                                alt="{{ achievement.altAfter ?: 'Photo après coiffure' }}"
+                                loading="lazy">
+                            <span class="label">Après</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
@@ -53,6 +60,8 @@
     {# === Bloc double-card : Coordonnées + prendre rdv === #}
     <section class="after-pricing-rdv">
         <div class="double-card">
+
+            {# --- Carte 1 : Coordonnées --- #}
             <div class="card-box contact">
                 <h3><strong>|</strong> Coordonnées</h3>
 
@@ -77,6 +86,7 @@
                 </ul>
             </div>
 
+            {# --- Carte 2 : prendre rdv --- #}
             <div class="card-box rdv">
                 <h3>Prenez rendez-vous<br> dès maintenant</h3>
                 <p class="rdv-text">
@@ -85,8 +95,10 @@
                 </p>
                 <a href="{{ path('app_appointement') }}" class="btn-primary">Votre rendez-vous</a>
             </div>
+
         </div>
     </section>
 
     <div class="separator"><span></span></div>
 {% endblock %}
+

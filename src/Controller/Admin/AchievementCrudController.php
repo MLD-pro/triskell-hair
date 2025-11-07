@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class AchievementCrudController extends AbstractCrudController
 {
@@ -18,7 +19,13 @@ class AchievementCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            // === ID (lecture seule) ===
             IdField::new('id')->onlyOnIndex(),
+
+            // === Ordre d’affichage ===
+            IntegerField::new('position', 'Ordre d’affichage')
+                ->setHelp('1 = premier, 2 = deuxième, etc.')
+                ->setSortable(true),
 
             // === Image "Avant" ===
             ImageField::new('imageBefore', 'Image Avant')
@@ -44,3 +51,4 @@ class AchievementCrudController extends AbstractCrudController
         ];
     }
 }
+

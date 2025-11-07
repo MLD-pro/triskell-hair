@@ -25,6 +25,9 @@ class Achievement
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $altAfter = null;
 
+    #[ORM\Column(type: 'integer')]
+    private ?int $position = 0; // 0 par défaut (affiché après les >0)
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,5 +76,17 @@ class Achievement
         $this->altAfter = $altAfter;
         return $this;
     }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): static
+    {
+        $this->position = $position;
+        return $this;
+    }
 }
+
 

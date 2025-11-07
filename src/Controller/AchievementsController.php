@@ -12,7 +12,8 @@ class AchievementsController extends AbstractController
     #[Route('/achievements', name: 'app_achievements')]
     public function index(AchievementRepository $achievementRepository): Response
     {
-        $achievements = $achievementRepository->findAll();
+        // On trie les réalisations par position croissante (1, 2, 3, ...)
+        $achievements = $achievementRepository->findBy([], ['position' => 'ASC']);
 
         return $this->render('achievements/index.html.twig', [
             'achievements' => $achievements,

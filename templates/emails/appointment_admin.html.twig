@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        {% include 'emails/emails-style.css.twig' %}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Nouvelle demande de rendez-vous</h2>
+    <p>Un client vient d’effectuer une demande de rendez-vous sur le site <strong>Triskell Hair</strong>.</p>
+
+    <ul class="client-info">
+        <li><strong>Civilité :</strong> {{ appointement.civility }}</li>
+        <li><strong>Nom :</strong> {{ appointement.firstname }} {{ appointement.lastname }}</li>
+        <li><strong>Email :</strong> {{ appointement.email }}</li>
+        <li><strong>Téléphone :</strong> {{ appointement.phone }}</li>
+        <li><strong>Adresse :</strong> {{ appointement.address }} {{ appointement.zipcode }} {{ appointement.city }}</li>
+    </ul>
+
+    <h3>Dates souhaitées</h3>
+    <ul class="dates">
+        <li>
+            <strong>1ère date :</strong>
+            {{ appointement.date1 ? appointement.date1|date('d/m/Y') : 'Non précisée' }}
+            —
+            <em>
+                {{ appointement.moment1 is not empty ? appointement.moment1|join(', ') : 'Moment non précisé' }}
+            </em>
+        </li>
+        <li>
+            <strong>2ème date :</strong>
+            {{ appointement.date2 ? appointement.date2|date('d/m/Y') : 'Non précisée' }}
+            —
+            <em>
+                {{ appointement.moment2 is not empty ? appointement.moment2|join(', ') : 'Moment non précisé' }}
+            </em>
+        </li>
+        <li>
+            <strong>3ème date :</strong>
+            {{ appointement.date3 ? appointement.date3|date('d/m/Y') : 'Non précisée' }}
+            —
+            <em>
+                {{ appointement.moment3 is not empty ? appointement.moment3|join(', ') : 'Moment non précisé' }}
+            </em>
+        </li>
+    </ul>
+
+    {% if appointement.message is not empty %}
+        <h3>Message du client</h3>
+        <p class="client-message">{{ appointement.message }}</p>
+    {% endif %}
+
+    <p class="admin-invite">
+        Connectez-vous à votre espace d’administration pour consulter et traiter cette demande :
+    </p>
+    <a href="{{ absolute_url(path('admin')) }}" class="button">Voir dans l’administration</a>
+</div>
+</body>
+</html>
+

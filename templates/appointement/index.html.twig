@@ -132,6 +132,17 @@
 
     <div class="separator"><span></span></div>
 
+    {% if app.flashes('success') %}
+        <div class="popup-overlay" id="popup-overlay">
+            <div class="popup-card">
+                <h3>Demande envoyée avec succès</h3>
+                <p>Votre demande de rendez-vous a bien été prise en compte.<br>
+                    Vous serez contacté très prochainement par téléphone.</p>
+            </div>
+        </div>
+    {% endif %}
+
+
     {{ form_end(form) }}
 
     {# JS #}

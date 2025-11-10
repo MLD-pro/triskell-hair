@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+    <div class="intro-banner">
+        <h1>Mon profil</h1>
+        <p>Modifiez vos informations personnelles ci-dessous</p>
+    </div>
+
+    <div class="separator"><span></span></div>
+
+    <section class="profile-page">
+        <div class="profile-card">
+            {{ form_start(form) }}
+
+            {{ form_row(form.civility) }}
+            {{ form_row(form.lastName) }}
+            {{ form_row(form.firstName) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.phone) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.zipcode) }}
+            {{ form_row(form.city) }}
+            {{ form_row(form.plainPassword) }}
+
+            <div class="submit-container">
+                <button type="submit" class="btn-primary">Enregistrer les modifications</button>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </section>
+
+    <div class="separator"><span></span></div>
+{% endblock %}
+

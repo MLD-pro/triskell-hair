@@ -53,8 +53,10 @@
         <a href="{{ path('app_achievements') }}">Réalisations</a>
 
         {% if app.user %}
-            <span>{{ app.user.civility }} {{ app.user.lastName|title }} {{ app.user.firstName|capitalize }}</span>
-            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            <a href="{{ path('app_profile') }}" class="user-link">
+                {{ app.user.civility }} {{ app.user.lastName|title }} {{ app.user.firstName|capitalize }}
+            </a>
+            <a href="{{ path('app_logout') }}" class="logout-link">Se déconnecter</a>
         {% else %}
             <a href="{{ path('app_auth') }}">Se connecter / S'inscrire</a>
         {% endif %}

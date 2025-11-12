@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .openPopup();
 
 
-    // === Gestion du formulaire ===
+    // Gestion du formulaire
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            // === Gestion du popup message ===
+            // popup message
             const popup = document.getElementById('popup-message');
             if (data.message) {
                 popup.textContent = data.message.text;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 8000);
             }
 
-            // Déplacement du marqueur si on a des coordonnées
+            // Mise a jour du marqueur sur la carte
             if (data.cityCoords && data.cityCoords.lat && data.cityCoords.lon) {
                 const lat = parseFloat(data.cityCoords.lat);
                 const lon = parseFloat(data.cityCoords.lon);

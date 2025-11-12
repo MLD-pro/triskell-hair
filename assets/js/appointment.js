@@ -18,13 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const hasMoment = Array.from(momentInputs).some(input => input.checked);
 
             if (dateInput.value && hasMoment) {
-                dateInput.style.border = "2px solid green";
-                dateInput.style.backgroundColor = "#e6ffe6";
+                dateInput.classList.add("validated");
 
                 momentInputs.forEach(input => {
                     if (input.checked) {
-                        input.parentElement.style.color = "green";
-                        input.style.accentColor = "green";
+                        input.parentElement.classList.add("moment-selected");
                     }
                 });
 

@@ -48,7 +48,7 @@ class LocationController extends AbstractController
                 ];
             }
 
-            // Si c’est une requête AJAX → renvoi JSON
+            // Si c’est une requête AJAX -> renvoi JSON
             if ($request->isXmlHttpRequest()) {
                 return new JsonResponse([
                     'message' => $message,

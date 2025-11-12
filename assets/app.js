@@ -22,4 +22,9 @@ import './js/homeMap.js';
 // Import de la librairie pour la map
 import 'leaflet/dist/leaflet.css';
 
+// Import du CSS plugin pour select2
+import "vendors/select2";
+
+
+
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

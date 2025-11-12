@@ -260,32 +260,55 @@
 }
 
 /* === Harmonisation complète du champ Select2 (simple & multiple) === */
-.select2-container--default .select2-selection--single,
-.select2-container--default .select2-selection--multiple {
-    background: rgba(#666666, 0.08) !important;
-    border: none !important;
-    border-radius: 12px !important;
-    min-height: 52px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding-left: 15px !important;
-    font-size: 1rem !important;
-    color: #483D3D !important;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s ease !important;
+.appointment-page .appointment-card form {
+    .select2-container--default {
+        .select2-selection--single,
+        .select2-selection--multiple {
+            background: rgba(#666666, 0.08);
+            border: none;
+            border-radius: 12px;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            font-size: 1rem;
+            color: #483D3D;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .select2-selection--single:focus,
+        .select2-selection--multiple:focus {
+            background: rgba(#666666, 0.15);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(180, 163, 125, 0.25);
+        }
+
+        /* Ajustement de la flèche */
+        .select2-selection__arrow b {
+            border-color: #483D3D transparent transparent transparent;
+        }
+    }
 }
 
-.select2-container--default .select2-selection--single:focus,
-.select2-container--default .select2-selection--multiple:focus {
-    background: rgba(#666666, 0.15) !important;
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(180, 163, 125, 0.25) !important;
+/* Correction de la couleur du texte et du placeholder dans le champ Select2 */
+.appointment-page .appointment-card form {
+    .select2-container--default .select2-selection__rendered {
+        color: #483D3D;
+        font-family: $font-main;
+    }
+
+    .select2-container--default .select2-selection__placeholder {
+        color: rgba(#483D3D, 0.55);
+    }
+
+    /* Hover et focus pour cohérence visuelle */
+    .select2-container--default .select2-selection--single:hover,
+    .select2-container--default .select2-selection--multiple:hover {
+        background: rgba(#666666, 0.12);
+    }
 }
 
-/* Ajustement flèche */
-.select2-container--default .select2-selection__arrow b {
-    border-color: #483D3D transparent transparent transparent !important;
-}
 
 
 
@@ -336,6 +359,37 @@
         }
     }
 }
+
+/* === Effets visuels quand le choix est validé  === */
+
+.appointment-page {
+    .appointment-card {
+        form {
+            .choice-block {
+                /* Champ date validé */
+                input[type="date"].validated {
+                    border: 2px solid #2e8b57; /* vert doux */
+                    background-color: #e6ffe6;
+                    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.18);
+                    transition: all 0.25s ease;
+                }
+
+                /* Créneau “Matin / Après-midi” sélectionné */
+                .form-check.moment-selected {
+                    label {
+                        color: #2e8b57;
+                        font-weight: 600;
+                    }
+
+                    input[type="checkbox"] {
+                        accent-color: #2e8b57;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 /* === Animation d’apparition === */
 @keyframes popup-appear {

@@ -23,5 +23,23 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^7.1.0",
         "leaflet": "^1.9.4"
-    }
+    },
+    "name": "projettriskellhair",
+    "version": "1.0.0",
+    "description": "",
+    "main": "webpack.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MLD-pro/triskell-hair.git"
+    },
+    "keywords": [],
+    "author": "",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/MLD-pro/triskell-hair/issues"
+    },
+    "homepage": "https://github.com/MLD-pro/triskell-hair#readme"
 }

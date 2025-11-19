@@ -92,12 +92,6 @@
             max-width: 42ch;
         }
     }
-
-    @media (max-width: 900px) {
-        .about-card { flex-direction: column; border-radius: 12px; }
-        .about-image img { width: 100%; margin: 20px 0; }
-        .about-text { padding: 30px 25px; }
-    }
 }
 
 
@@ -157,21 +151,6 @@
         &:active {
             transform: translateY(0);
             box-shadow: none;
-        }
-    }
-
-    @media (max-width: 768px) {
-        padding: 25px 15px 60px;
-        margin-bottom: 15px;
-
-        h2 {
-            font-size: 2.4rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn-primary {
-            font-size: 1.7rem;
-            padding: 1.3rem 2rem;
         }
     }
 }
@@ -270,35 +249,6 @@
             height: auto;
             object-fit: cover;
             margin: 50px 0;
-        }
-    }
-
-    @media (max-width: 900px) {
-        padding: 25px 20px 80px;
-        margin-top: -10px;
-
-        .prestations-card {
-            flex-direction: column;
-            padding: 40px 25px;
-            border-radius: 16px;
-        }
-
-        .prestations-text {
-            padding: 30px 25px;
-
-            h2 {
-                font-size: 2.4rem;
-                margin-bottom: 2rem;
-            }
-        }
-
-        .prestations-image {
-            padding-right: 0;
-        }
-
-        .prestations-image img {
-            width: 100%;
-            margin: 20px 0;
         }
     }
 }
@@ -404,39 +354,316 @@
             }
         }
     }
+}
 
-    /* === RESPONSIVE === */
-    @media (max-width: 1000px) {
-        padding: 25px 20px 80px;
+/* ============================================
+   HOME — RESPONSIVE MOBILE (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
 
-        .map-info-container {
+    /* --------------------------------------------
+       [GLOBAL] Réglages généraux du contenu home
+       -------------------------------------------- */
+    .home-content {
+        background-color: #f6e9c5;
+        padding: 3rem 1.25rem 4rem;
+        text-align: center;
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        p {
+            max-width: 100%;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    }
+
+    /* --------------------------------------------
+       [GLOBAL] Structure commune des sections home
+       -------------------------------------------- */
+    .home-section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    /* === AJOUT : uniformisation des marges === */
+
+    /* SECTION 3 — Prestations → même largeur que section À propos */
+    .home-section.prestations .prestations-card {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* SECTION 4 — Localisation → mêmes marges horizontales */
+    .home-section.localisation {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* ============================================
+       SECTION 1 — À PROPOS
+       ============================================ */
+    .home-section.about {
+        padding: 40px 16px 60px;
+        margin-bottom: 0;
+
+        .about-card {
             flex-direction: column;
-            gap: 40px;
+            align-items: center;
+            max-width: 100%;
+            border-radius: 16px;
         }
 
-        .map iframe {
-            height: 400px;
-        }
-
-        .info {
-            text-align: center;
+        .about-image {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
             align-items: center;
 
-            .hours {
-                width: 100%;
-                margin: 0 auto;
+            img {
+                width: 90%;
+                max-width: 300px;
+                height: auto;
+                margin: 20px auto 0;
+                display: block;
+                object-fit: cover;
+            }
+        }
+
+        .about-text {
+            flex: 0 0 auto;
+            padding: 24px 20px 32px;
+            text-align: center;
+
+            h3 {
+                font-size: 1.3rem;
+                letter-spacing: 0.14em;
+                margin-bottom: 0.7rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 1.2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.55;
             }
         }
     }
+
+    /* ============================================
+       SECTION 2 — Comment se déroule le rendez-vous ?
+       ============================================ */
+    .home-section.rendezvous {
+        padding: 40px 16px 60px;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            width: 100%;
+            max-width: 280px;
+            border-radius: 999px;
+            margin: 0 auto;
+        }
+    }
+
+    /* ============================================
+       SECTION 3 — Prestations (coupe, couleur…)
+       ============================================ */
+    .home-section.prestations {
+
+        /* même marge extérieure que la section 1 */
+        padding: 30px 16px 90px;
+        width: 100%;
+        box-sizing: border-box;
+
+        .prestations-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            /* MARGE INTERNE FIXÉE — comme la card de À propos */
+            padding: 24px 20px 32px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: $shadow-soft;
+        }
+
+        .prestations-image {
+            order: 1;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 0; /* ← correction propre, sans !important */
+
+            img {
+                display: block;
+                width: 100%;
+                max-width: 330px;
+                height: auto;
+                margin: 0 auto 20px;
+                object-fit: cover;
+            }
+        }
+
+
+        .prestations-text {
+            order: 2;
+            padding: 0 10px;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 1.6rem;
+            }
+
+            .btn-primary {
+                font-size: 1.1rem;
+                padding: 0.9rem 1.8rem;
+                width: 100%;
+                max-width: 240px;
+                border-radius: 999px;
+                margin-top: 1.4rem;
+            }
+        }
+    }
+
+    .home-section.prestations .prestations-text .btn-primary {
+        background-color: $color-gold-light;
+        color: #483D3D;
+    }
+
+    .home-section.prestations .prestations-text .btn-primary::before {
+        background: transparent;
+        left: 0;
+        transform: none;
+    }
+
+    /* ============================================
+       SECTION 4 — Localisation (map + infos)
+       ============================================ */
+    .home-section.localisation {
+        padding: 0px 16px 50px;
+
+        .map-info-container {
+            flex-direction: column;
+            gap: 24px;
+            max-width: 100%;
+        }
+
+        .info {
+            order: 1;
+            text-align: left;
+
+            h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+                gap: 0.6rem;
+
+                img {
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+
+            .hours {
+                width: 100%;
+                margin-top: 1rem;
+
+                li {
+                    font-size: 0.95rem;
+                    padding: 0.7rem 0;
+                }
+            }
+        }
+
+        .map {
+            order: 2;
+            flex: 0 0 auto;
+            width: 100%;
+            justify-content: center;
+
+            #map {
+                width: 100%;
+                min-height: 280px;
+            }
+        }
+    }
+
+    /* --------------------------------------------
+       SÉPARATEURS ENTRE SECTIONS (mobile)
+       -------------------------------------------- */
+    .separator {
+        margin: 0 0 32px;
+
+        span {
+            display: block;
+        }
+    }
+    /* Réduction de l’espace avant la section Localisation uniquement */
+    .separator + .home-section.localisation {
+        margin-top: 8px;
+    }
 }
 
+/* ============================================
+   FIX — Très petits écrans Android (max-width: 380px)
+   ============================================ */
+@media (max-width: 380px) {
 
+    .home-section.prestations .prestations-card {
+        padding: 24px 14px;
+    }
 
+    .home-section.prestations .prestations-image img {
+        max-width: 280px;
+    }
 
+    .home-section.prestations .prestations-text .btn-primary {
+        max-width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .home-section.rendezvous .btn-primary {
+        max-width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-
-
-
-
-
+    .home-section.prestations .prestations-text .btn-primary {
+        max-width: 200px;
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
+}

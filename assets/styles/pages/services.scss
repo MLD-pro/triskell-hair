@@ -292,16 +292,3 @@
     }
 }
 
-/* === Responsive === */
-@media (max-width: 992px) {
-    .after-pricing-rdv {
-        .double-card {
-            grid-template-columns: 1fr;
-            gap: 25px;
-            padding: 30px 25px;
-        }
-        .card-box {
-            padding: 22px;
-        }
-    }
-}

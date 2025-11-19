@@ -1,45 +1,25 @@
 {
-    "devDependencies": {
-        "@babel/core": "^7.17.0",
-        "@babel/preset-env": "^7.16.0",
-        "@hotwired/stimulus": "^3.2.2",
-        "@symfony/webpack-encore": "^5.0.0",
-        "core-js": "^3.38.0",
-        "file-loader": "^6.2.0",
-        "regenerator-runtime": "^0.13.9",
-        "sass": "^1.93.2",
-        "sass-loader": "^16.0.5",
-        "webpack": "^5.74.0",
-        "webpack-cli": "^5.1.0"
-    },
-    "license": "UNLICENSED",
-    "private": true,
+    "name": "projettriskellhair",
+    "version": "1.0.0",
+    "description": "Triskell’Hair",
+    "main": "index.js",
+    "license": "ISC",
     "scripts": {
-        "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.28.5",
+        "@babel/preset-env": "^7.28.5",
+        "@symfony/webpack-encore": "^5.3.0",
+        "file-loader": "^6.2.0",
+        "sass": "^1.94.0",
+        "sass-loader": "^16.0.6"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^7.1.0",
+        "@hotwired/stimulus": "^3.2.2",
         "leaflet": "^1.9.4"
-    },
-    "name": "projettriskellhair",
-    "version": "1.0.0",
-    "description": "",
-    "main": "webpack.config.js",
-    "directories": {
-        "test": "tests"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MLD-pro/triskell-hair.git"
-    },
-    "keywords": [],
-    "author": "",
-    "type": "commonjs",
-    "bugs": {
-        "url": "https://github.com/MLD-pro/triskell-hair/issues"
-    },
-    "homepage": "https://github.com/MLD-pro/triskell-hair#readme"
+    }
 }

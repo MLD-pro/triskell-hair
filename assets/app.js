@@ -1,30 +1,27 @@
-// assets/app.js
+// Stimulus (framework fourni par Symfony)
+import './bootstrap.js';
 
-import './bootstrap.js'; /* charge le stimulus qui est un framework inclus par symfony pour plus tard si je veux faire des interactions dynamiques */
 /*
  * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
+ * It will be included via Webpack Encore.
  */
-import '@fortawesome/fontawesome-free/css/all.min.css'; /* Import de Font Awesome pour les icônes des réseaux sociaux */
+
+// FontAwesome
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/js/all.min.js';
 
-import './styles/index.scss'; /* Import du fichier principal SCSS qui regroupe tout mon design  */
+// Notre SCSS global
+import './styles/index.scss';
 
-// Import de les scripts front-end specifiques
+// Tous les scripts JS du site
 import './js/main.js';
 import './js/appointment.js';
 import './js/band.js';
 import './js/location.js';
 import './js/homeMap.js';
 
-// Import de la librairie pour la map
+// Leaflet (pour la map)
 import 'leaflet/dist/leaflet.css';
 
-// Import du CSS plugin pour select2
-import "vendors/select2";
+console.log('This log comes from assets/app.js - welcome to Webpack Encore 🎉');
 
-
-
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

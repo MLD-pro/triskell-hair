@@ -21,7 +21,7 @@
     <div class="header-top">
         <a href="{{ path('app_home') }}" class="logo">
             <img src="{{ asset('images/logo_h.png') }}" alt="Le logo de Triskell'Hair">
-            Triskell'Hair
+            <span class="logo-text">Triskell'Hair</span>
         </a>
 
         <button class="burger" id="burger-btn" aria-label="Menu">
@@ -96,8 +96,10 @@
     <div class="footer-container">
         <!-- Bloc logo -->
         <div class="footer-logo">
-            <img src="{{ asset('images/logo-grey-footer.png') }}" alt="Le logo Triskell'Hair">
-            <p>Triskell'Hair</p>
+            <a href="{{ path('app_home') }}" class="logo">
+                <img src="{{ asset('images/logo-grey-footer.png') }}" alt="Le logo de Triskell'Hair">
+                <span class="logo-text-footer">Triskell'Hair</span>
+            </a>
         </div>
 
         <!-- Bloc Liens rapides -->

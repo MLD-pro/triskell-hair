@@ -18,11 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const hasMoment = Array.from(momentInputs).some(input => input.checked);
 
             if (dateInput.value && hasMoment) {
-                dateInput.classList.add("validated");
+                dateInput.style.border = "2px solid green";
+                dateInput.style.backgroundColor = "#e6ffe6";
 
                 momentInputs.forEach(input => {
                     if (input.checked) {
-                        input.parentElement.classList.add("moment-selected");
+                        input.parentElement.style.color = "green";
+                        input.style.accentColor = "green";
                     }
                 });
 
@@ -71,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log("Réponse serveur RDV :", data);
+
                     if (data.success) {
                         showPopupMessage(
                             "Demande envoyée avec succès",
@@ -122,10 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-
-
-
 
 
 

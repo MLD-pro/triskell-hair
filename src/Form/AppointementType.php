@@ -75,8 +75,8 @@ class AppointementType extends AbstractType
                 'constraints' => [
                     new NotBlank(['message' => 'Veuillez indiquer votre numéro de téléphone.']),
                     new Regex([
-                        'pattern' => '/^(?:\+33|0)[1-9](?:\d{2}){4}$/',
-                        'message' => 'Veuillez entrer un numéro de téléphone valide (ex: 06XXXXXXXX).',
+                        'pattern' => '/^(?:\+33|0)[1-9](?:[ .-]?\d{2}){4}$/',
+                        'message' => 'Veuillez entrer un numéro de téléphone valide.',
                     ]),
                 ],
             ])

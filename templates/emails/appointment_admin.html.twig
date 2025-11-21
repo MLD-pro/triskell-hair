@@ -26,28 +26,30 @@
             {{ appointement.date1 ? appointement.date1|date('d/m/Y') : 'Non précisée' }}
             —
             <em>
-                {{ appointement.moment1 is not empty ? appointement.moment1|join(', ') : 'Moment non précisé' }}
+                {{ appointement.moment1 ? appointement.moment1|join(', ') : 'Moment non précisé' }}
             </em>
         </li>
+
         <li>
             <strong>2ème date :</strong>
             {{ appointement.date2 ? appointement.date2|date('d/m/Y') : 'Non précisée' }}
             —
             <em>
-                {{ appointement.moment2 is not empty ? appointement.moment2|join(', ') : 'Moment non précisé' }}
+                {{ appointement.moment2 ? appointement.moment2|join(', ') : 'Moment non précisé' }}
             </em>
         </li>
+
         <li>
             <strong>3ème date :</strong>
             {{ appointement.date3 ? appointement.date3|date('d/m/Y') : 'Non précisée' }}
             —
             <em>
-                {{ appointement.moment3 is not empty ? appointement.moment3|join(', ') : 'Moment non précisé' }}
+                {{ appointement.moment3 ? appointement.moment3|join(', ') : 'Moment non précisé' }}
             </em>
         </li>
     </ul>
 
-    {% if appointement.message is not empty %}
+    {% if appointement.message %}
         <h3>Message du client</h3>
         <p class="client-message">{{ appointement.message }}</p>
     {% endif %}

@@ -292,3 +292,251 @@
     }
 }
 
+
+/* ============================================
+   SERVICES — RESPONSIVE MOBILE (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* --- Bannière d’intro --- */
+    .intro-banner {
+        padding: 80px 16px 70px;
+        margin-top: 70px;
+        margin-bottom: 40px;
+        text-align: center;
+
+        h1 {
+            font-size: 2.1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        p {
+            max-width: 32ch;
+            margin: 0.4rem auto;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+    }
+
+    /* --- Sections tarifs --- */
+    .pricing-section {
+        display: flex;
+        justify-content: center;
+        padding: 0 16px 28px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 18px;
+        padding: 24px 18px 26px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+
+        h2 {
+            font-size: 1.35rem;
+            margin: 0 0 28px 0;
+        }
+
+        /* Espace entre Femmes et Colorations */
+        h2 + ul + h2 {
+            margin-top: 36px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin: 22px 0 10px;
+        }
+
+        ul li {
+            padding: 0.4rem 0;
+            font-size: 1rem;
+            gap: 0.6rem;
+
+            /* FIX : autoriser le retour à la ligne */
+            .service-name {
+                white-space: normal;
+            }
+
+            .dots {
+                background-size: 5px 1px;
+            }
+
+            .service-price {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    /* --- Bloc double-carte (Coordonnées + RDV) --- */
+    .after-pricing-rdv {
+        display: flex;
+        justify-content: center;
+        padding: 0 16px 40px;
+        margin-top: 8px;
+        margin-bottom: 15px;
+
+        .double-card {
+            width: 100%;
+            max-width: 100%;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            padding: 26px 18px 30px;
+            border-radius: 18px;
+        }
+
+        .card-box {
+            padding: 20px 18px;
+            border-radius: 16px;
+        }
+
+        /* Carte Coordonnées */
+        .card-box.contact {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 18px;
+
+            h3 {
+                font-size: 1.35rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .intro-name,
+            .intro-zone {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .contact-line {
+                font-size: 1rem;
+                gap: 0.6rem;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .hours {
+                width: 100%;
+                margin-top: 0.8rem;
+
+                li {
+                    font-size: 0.95rem;
+                    padding: 0.55rem 0;
+                }
+            }
+        }
+
+        /* Carte Prendre rendez-vous */
+        .card-box.rdv {
+            align-items: center;
+            text-align: center;
+
+            h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1.4rem;
+                line-height: 1.3;
+            }
+
+            .rdv-text {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 0 0 1.8rem 0;
+                max-width: 32ch;
+            }
+
+            .btn-primary {
+                font-size: 1.1rem;
+                padding: 0.95rem 1.6rem;
+                width: 100%;
+                max-width: 240px;
+                border-radius: 999px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+/* ============================================
+   SERVICES — petits écrans (max-width: 380px)
+   ============================================ */
+@media (max-width: 380px) {
+
+    .intro-banner {
+        padding: 70px 14px 60px;
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+    }
+
+    .pricing-section {
+        padding: 0 14px 24px;
+    }
+
+    .pricing-card {
+        padding: 20px 14px 22px;
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+        }
+
+        ul li {
+            font-size: 0.95rem;
+            gap: 0.4rem;
+
+            /* Retour ligne assuré sur très petits écrans */
+            .service-name {
+                white-space: normal;
+            }
+        }
+
+        /* espacement */
+        h2 + ul + h2 {
+            margin-top: 42px;
+        }
+    }
+
+    .after-pricing-rdv {
+        padding: 0 14px 32px;
+
+        .double-card {
+            padding: 22px 14px 26px;
+            gap: 20px;
+        }
+
+        .card-box {
+            padding: 18px 14px;
+        }
+
+        .card-box.rdv {
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            .rdv-text {
+                font-size: 0.95rem;
+            }
+
+            .btn-primary {
+                max-width: 200px;
+                font-size: 1rem;
+                padding: 0.85rem 1.2rem;
+            }
+        }
+    }
+}
+
+
+
+

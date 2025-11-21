@@ -403,6 +403,284 @@
     }
 }
 
+/* ============================================
+   APPOINTEMENT — Responsive Mobile (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+    .appointment-page {
+        /* même logique de marges que les autres pages */
+        padding: 15px 16px 25px;
+
+        /* AJOUT DES MARGES — C’EST ICI ✔ */
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+        .appointment-card {
+            padding: 30px 18px 20px;   /* ↓ léger ajustement bas */
+            margin-top: 0;             /* enlève le gap avant */
+            margin-bottom: 20px;       /* espace propre entre card et separator */
+            border-radius: 18px;
+            width: 100%;
+            max-width: 100%;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+
+                input,
+                select,
+                textarea,
+                .select2-selection--single,
+                .select2-selection--multiple {
+                    width: 100%;
+                    max-width: 100%;
+                    box-sizing: border-box;
+                }
+
+                /* Taille placeholder */
+                input::placeholder,
+                textarea::placeholder,
+                select::placeholder,
+                .select2-selection__placeholder {
+                    font-size: 0.85rem;
+                    opacity: 0.8;
+                }
+
+                /* === Civilité en haut, plus compacte === */
+                .form-group.civility {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                }
+
+                /* === Colonnes → une seule colonne en mobile === */
+                .form-columns {
+                    flex-direction: column;
+                    gap: 24px;
+                    align-items: stretch;
+
+                    .form-column {
+                        width: 100%;
+                        gap: 20px;
+                    }
+
+                    &.small {
+                        margin-top: 10px;
+                        gap: 20px;
+                    }
+                }
+
+                /* Labels & champs */
+                label {
+                    font-size: 0.95rem;
+                    margin-bottom: 6px;
+                }
+
+                input,
+                select,
+                textarea {
+                    font-size: 1rem;
+                    padding: 13px 15px;
+                    border-radius: 10px;
+                }
+
+                textarea {
+                    min-height: 110px;
+                }
+
+                /* Civilité : radios un peu plus serrés */
+                #appointement_civility {
+                    gap: 18px;
+
+                    input[type="radio"] {
+                        width: 18px;
+                        height: 18px;
+                    }
+
+                    label {
+                        font-size: 0.95rem;
+                    }
+                }
+
+                /* Bloc dates */
+                .choice-block {
+                    margin-top: 10px;
+                    padding: 0;
+
+                    label {
+                        margin-bottom: 8px;
+                    }
+
+                    input[type="date"] {
+                        padding: 11px 14px;
+                        font-size: 0.95rem;
+                        margin-bottom: 12px;
+                    }
+
+                    .moment-options {
+                        gap: 18px;
+                    }
+
+                    .form-check {
+                        gap: 8px;
+
+                        input[type="checkbox"] {
+                            width: 18px;
+                            height: 18px;
+                        }
+
+                        label {
+                            font-size: 0.95rem;
+                        }
+                    }
+
+                    .validate-choice {
+                        margin-top: 10px;
+                        font-size: 0.95rem;
+                        padding: 8px 20px;
+                    }
+                }
+
+                /* Bloc adresse / message */
+                .address-block,
+                .message-block {
+                    margin-top: 12px;
+                }
+
+                /* Bouton d’envoi */
+                .submit-container {
+                    margin-top: 10px;
+                    text-align: center;
+
+                    .btn-primary {
+                        font-size: 1.15rem;
+                        padding: 13px 28px;
+                        width: 100%;
+                        max-width: 260px;
+                        border-radius: 999px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* select2 mobile */
+    .appointment-page .appointment-card form {
+        .select2-container--default {
+            .select2-selection--single,
+            .select2-selection--multiple {
+                min-height: 48px;
+                padding-left: 12px;
+                font-size: 0.95rem;
+            }
+        }
+    }
+
+    /* popup mobile */
+    .popup-overlay {
+        .popup-card {
+            padding: 28px 20px;
+            max-width: 90%;
+
+            h3 {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+
+/* ============================================
+   APPOINTEMENT — Très petits écrans (max-width: 380px)
+   ============================================ */
+@media (max-width: 380px) {
+
+    .appointment-page {
+        padding: 30px 14px 70px;
+
+        .appointment-card {
+            padding: 24px 14px 32px;
+
+            form {
+                gap: 22px;
+
+                label {
+                    font-size: 0.9rem;
+                }
+
+                input,
+                select,
+                textarea {
+                    font-size: 0.95rem;
+                    padding: 11px 13px;
+                }
+
+                textarea {
+                    min-height: 100px;
+                }
+
+                .form-columns {
+                    gap: 18px;
+
+                    .form-column {
+                        gap: 16px;
+                    }
+                }
+
+                .choice-block {
+                    input[type="date"] {
+                        font-size: 0.9rem;
+                    }
+
+                    .validate-choice {
+                        font-size: 0.9rem;
+                        padding: 7px 16px;
+                    }
+                }
+
+                .submit-container .btn-primary {
+                    font-size: 1.05rem;
+                    padding: 11px 22px;
+                    max-width: 230px;
+                }
+            }
+        }
+    }
+
+    /* Select2 encore un peu plus compact */
+    .appointment-page .appointment-card form {
+        .select2-container--default {
+            .select2-selection--single,
+            .select2-selection--multiple {
+                min-height: 44px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .popup-overlay {
+        .popup-card {
+            padding: 22px 16px;
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+        }
+    }
+}
 
 
 

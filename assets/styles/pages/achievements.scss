@@ -127,4 +127,109 @@
 }
 
 
+/* ============================================
+   RÉALISATIONS — Responsive Mobile (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+    /* === Galerie et card principale === */
+    .achievements-gallery {
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .achievements-gallery .achievement {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px 18px;
+        margin: 20px auto 40px;
+        border-radius: 18px;
+        box-sizing: border-box;
+    }
+
+    /* Avant / Après en colonne */
+    .achievements-gallery .achievement .before-after {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        width: 100%;
+    }
+
+    /* Bloc image */
+    .before-after .image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .before-after .image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .before-after .image-wrapper .label {
+        width: 100%;
+        color: #fff;
+        font-size: 0.95rem;
+        padding: 8px 0;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    /* === Bloc "Envie d'un avant / après" === */
+    .you-want-before-after {
+        margin-top: 40px;
+        margin-bottom: 80px;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .you-want-before-after h2 {
+        font-size: 1.7rem;
+        line-height: 1.35;
+        max-width: 30ch;
+        margin-bottom: 24px;
+    }
+
+    .you-want-before-after .btn-primary {
+        width: 100%;
+        max-width: 260px;
+        padding: 13px 24px;
+        font-size: 1.1rem;
+        border-radius: 999px;
+    }
+}
+
+
+
+/* ============================================
+   RÉALISATIONS — Très petits écrans (max-width: 380px)
+   ============================================ */
+@media (max-width: 380px) {
+
+    .achievements-gallery .achievement {
+        padding: 20px 14px;
+        margin: 16px auto 32px;
+        border-radius: 16px;
+    }
+
+    .before-after .image-wrapper .label {
+        font-size: 0.85rem;
+        padding: 6px 0;
+    }
+
+    .you-want-before-after h2 {
+        font-size: 1.45rem;
+        margin-bottom: 20px;
+    }
+
+    .you-want-before-after .btn-primary {
+        max-width: 230px;
+        font-size: 1rem;
+        padding: 11px 20px;
+    }
+}
 

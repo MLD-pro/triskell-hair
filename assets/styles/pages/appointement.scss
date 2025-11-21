@@ -412,14 +412,14 @@
         /* même logique de marges que les autres pages */
         padding: 15px 16px 25px;
 
-        /* AJOUT DES MARGES — C’EST ICI ✔ */
+        /* AJOUT DES MARGES */
         margin-top: 0px;
         margin-bottom: 0px;
 
         .appointment-card {
-            padding: 30px 18px 20px;   /* ↓ léger ajustement bas */
-            margin-top: 0;             /* enlève le gap avant */
-            margin-bottom: 20px;       /* espace propre entre card et separator */
+            padding: 30px 18px 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
             border-radius: 18px;
             width: 100%;
             max-width: 100%;

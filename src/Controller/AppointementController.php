@@ -14,7 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class AppointementController extends AbstractController
 {
-    #[Route('/appointement', name: 'app_appointement')]
+    #[Route('/RDV', name: 'app_appointement')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $appointement = new Appointement();

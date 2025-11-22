@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{% block title %}Triskell'Hair{% endblock %}</title>
 
+    {# onglet icon #}
+    <link rel="icon" type="image/png" href="{{ asset('logo_h.png') }}" />
+
     {# police d'écriture #}
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -128,8 +131,6 @@
             <ul>
                 <li><a href="{{ path('app_mentions') }}">Mentions légales</a></li>
                 <li><a href="{{ path('app_confidentialite') }}">Politique de confidentialité</a></li>
-                <li><a href="#">CGU</a></li>
-                <li><a href="#">Vie privée</a></li>
             </ul>
         </div>
 

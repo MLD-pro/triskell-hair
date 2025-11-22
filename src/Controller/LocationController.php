@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LocationController extends AbstractController
 {
-    #[Route('/location', name: 'app_location')]
+    #[Route('/deplacements', name: 'app_location')]
     public function index(Request $request, LocationRepository $locationRepository): Response
     {
         $form = $this->createForm(LocationSearchType::class);

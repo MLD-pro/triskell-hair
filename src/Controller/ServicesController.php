@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ServicesController extends AbstractController
 {
-    #[Route('/services', name: 'app_services')]
+    #[Route('/prestations', name: 'app_services')]
     public function index(ServiceRepository $serviceRepository): Response
     {
         $services = $serviceRepository->findAll();

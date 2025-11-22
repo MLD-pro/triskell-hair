@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AchievementsController extends AbstractController
 {
-    #[Route('/achievements', name: 'app_achievements')]
+    #[Route('/realisations', name: 'app_achievements')]
     public function index(AchievementRepository $achievementRepository): Response
     {
         // On trie les réalisations par position croissante (1, 2, 3, ...)

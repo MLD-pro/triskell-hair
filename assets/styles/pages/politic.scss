@@ -1,0 +1,134 @@
+/* ================================================
+   PAGE POLITIQUE DE CONFIDENTIALITÉ
+   ================================================ */
+
+.legal-page {
+    background-color: #fff8e0;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.legal-container {
+    background: #ffffff;
+    max-width: 900px;
+    width: 100%;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    color: #483D3D;
+}
+
+/* === TITRES === */
+.legal-container h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #483D3D;
+}
+
+.legal-container h2 {
+    font-size: 1.6rem;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: #483D3D;
+    font-weight: 600;
+}
+
+.legal-container h3 {
+    font-size: 1.3rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #5a4d4d;
+    font-weight: 500;
+}
+
+/* === PARAGRAPHES === */
+.legal-container p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: #5a4d4d;
+}
+
+/* === LISTES === */
+.legal-container ul {
+    margin: 12px 0 25px 20px;
+    padding: 0;
+}
+
+.legal-container ul li {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* === LIENS === */
+.legal-container a {
+    color: #b4a37d;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/* === Dernière mise à jour === */
+.legal-container .update {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    font-style: italic;
+    text-align: right;
+    color: #6b5f5f;
+}
+
+/* ================================================
+   RESPONSIVE (mobile)
+   ================================================ */
+
+@media (max-width: 768px) {
+
+    .legal-page {
+        padding: 40px 15px;
+    }
+
+    .legal-container {
+        padding: 35px 25px;
+    }
+
+    .legal-container h1 {
+        font-size: 1.9rem;
+    }
+
+    .legal-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .legal-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .legal-container p,
+    .legal-container ul li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .legal-container {
+        padding: 25px 18px;
+        border-radius: 16px;
+    }
+
+    .legal-container h1 {
+        font-size: 1.7rem;
+    }
+
+    .legal-container p,
+    .legal-container ul li {
+        font-size: 0.95rem;
+    }
+}

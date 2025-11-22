@@ -1,9 +1,145 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mentions légales{% endblock %}
+{% block title %}Mentions légales — Triskell'Hair{% endblock %}
 
 {% block body %}
-    <h1>Mentions légales</h1>
-    <p>Contenu à venir...</p>
+    <section class="legal-page">
+        <div class="legal-container">
+
+            <h1>Mentions légales</h1>
+
+            <p>Conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004
+                pour la confiance dans l'économie numérique (LCEN), il est porté à la connaissance des utilisateurs du site
+                <strong>Triskell’Hair</strong> les présentes mentions légales.</p>
+
+            <!-- IDENTITÉ DE L'ÉDITEUR -->
+            <h2>1. Éditeur du site</h2>
+            <p>
+                Le présent site est édité par :<br>
+                <strong>Madame Claire PENVEN</strong><br>
+                Entreprise individuelle<br>
+                SIREN : <strong>817 688 484</strong><br>
+                Adresse professionnelle : <strong>30 STANG BOUDILIN, 29390 SCAER, France</strong><br>
+                Activité déclarée : Coiffure à domicile<br>
+            </p>
+
+            <!-- CONTACT -->
+            <h2>2. Contact</h2>
+            <p>
+                Téléphone : <strong>06.40.75.81.29</strong><br>
+                Email : <strong>triskellhair@gmail.com</strong><br>
+                Formulaire de contact : disponible via la page <a href="{{ path('app_appointement') }}">Prendre rendez-vous</a>
+            </p>
+
+            <!-- RESPONSABLE DE PUBLICATION -->
+            <h2>3. Responsable de publication</h2>
+            <p>
+                Responsable : <strong>Madame Claire PENVEN</strong><br>
+                Publication et gestion des contenus : Triskell’Hair
+            </p>
+
+            <!-- DÉVELOPPEUR -->
+            <h2>4. Développement du site</h2>
+            <p>
+                Développé par : <strong>Monsieur Le Dez Morgan</strong>
+                (Développeur web Symfony)
+            </p>
+
+            <!-- HÉBERGEUR -->
+            <h2>5. Hébergement du site</h2>
+            <p>
+                Le site est hébergé par :<br>
+                <strong>Hostinger International Ltd</strong><br>
+                Adresse : 61 Lordou Vironos Street, 6023 Larnaca, Chypre<br>
+                Site : https://www.hostinger.fr
+            </p>
+
+            <!-- PROPRIÉTÉ INTELLECTUELLE -->
+            <h2>6. Propriété intellectuelle</h2>
+            <p>
+                Le site ainsi que son contenu (textes, images, logo, design, structure, code source) sont la propriété exclusive
+                de Triskell’Hair et du développeur du site, sauf mention contraire.
+            </p>
+
+            <h3>Images utilisées</h3>
+            <ul>
+                <li>Images issues de banques d’images libres de droit (Pexels, Pixabay, Unsplash).</li>
+                <li>Images privées de clients utilisées <strong>avec autorisation explicite</strong>.</li>
+                <li>Le logo Triskell’Hair est une création protégée.</li>
+            </ul>
+
+            <p>Toute reproduction, représentation, modification ou adaptation, partielle ou totale, est strictement interdite
+                sans autorisation préalable.</p>
+
+            <!-- DONNÉES PERSONNELLES / RGPD -->
+            <h2>7. Données personnelles (RGPD)</h2>
+            <p>
+                Le site Triskell’Hair collecte uniquement les données nécessaires au fonctionnement du service de réservation :
+            </p>
+            <ul>
+                <li>Identité (civilité, nom, prénom)</li>
+                <li>Coordonnées (adresse, ville, code postal, téléphone, email)</li>
+                <li>Informations nécessaires à la prise de rendez-vous</li>
+            </ul>
+
+            <p>Base légale : exécution du service (article 6.1.b du RGPD).</p>
+
+            <h3>Responsable du traitement</h3>
+            <p><strong>Madame Claire PENVEN</strong></p>
+
+            <h3>Durée de conservation</h3>
+            <ul>
+                <li>Comptes clients : tant que le compte reste actif</li>
+                <li>Données de réservation : 3 ans maximum</li>
+                <li>Données nécessaires à la facturation : 10 ans (obligation légale)</li>
+            </ul>
+
+            <h3>Droits des utilisateurs</h3>
+            <p>
+                Conformément au RGPD, vous disposez des droits suivants :
+            </p>
+            <ul>
+                <li>Droit d’accès</li>
+                <li>Droit de rectification</li>
+                <li>Droit d’effacement</li>
+                <li>Droit à la limitation</li>
+                <li>Droit d’opposition</li>
+            </ul>
+            <p>
+                Pour exercer vos droits :
+                <strong>triskellhair@gmail.com</strong>
+            </p>
+
+            <!-- COOKIES -->
+            <h2>8. Cookies</h2>
+            <p>
+                Le site utilise uniquement des cookies <strong>techniques essentiels</strong> nécessaires au fonctionnement :
+            </p>
+            <ul>
+                <li>Cookie de session Symfony</li>
+                <li>Cookie “se souvenir de moi”</li>
+                <li>Aucun cookie publicitaire</li>
+                <li>Aucun cookie de tracking externe (Google Analytics, Facebook, TikTok…) n'est utilisé</li>
+            </ul>
+
+            <!-- RESPONSABILITÉ -->
+            <h2>9. Limitation de responsabilité</h2>
+            <p>
+                Triskell’Hair s’efforce de fournir des informations exactes.
+                Toutefois, aucune garantie n’est apportée quant à l'exactitude, l’exhaustivité ou la mise à jour du site.
+            </p>
+
+            <!-- LIENS EXTERNES -->
+            <h2>10. Liens externes</h2>
+            <p>
+                Les liens vers des sites externes (Facebook, Instagram, etc.) ne relèvent pas de la responsabilité de Triskell’Hair.
+            </p>
+
+            <p class="update">
+                Dernière mise à jour : {{ "now"|date("d/m/Y") }}
+            </p>
+        </div>
+    </section>
 {% endblock %}
+
 

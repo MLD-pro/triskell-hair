@@ -1,9 +1,125 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Politique de confidentialité{% endblock %}
+{% block title %}Politique de confidentialité — Triskell'Hair{% endblock %}
 
 {% block body %}
-    <h1>Politique de confidentialité</h1>
-    <p>Contenu à venir...</p>
+    <section class="legal-page">
+        <div class="legal-container">
+
+            <h1>Politique de confidentialité</h1>
+
+            <p>
+                La présente politique de confidentialité vise à informer les utilisateurs du site
+                <strong>Triskell’Hair</strong> sur la manière dont leurs données personnelles sont collectées,
+                utilisées, protégées et conservées, conformément au Règlement Général sur la Protection des Données
+                (RGPD – UE 2016/679) et à la loi Informatique et Libertés.
+            </p>
+
+            <!-- 1. Données collectées -->
+            <h2>1. Données collectées</h2>
+            <p>Dans le cadre de l'utilisation du site et du service de réservation, Triskell’Hair collecte les données suivantes :</p>
+            <ul>
+                <li>Nom, prénom, civilité</li>
+                <li>Adresse postale, code postal, ville</li>
+                <li>Téléphone</li>
+                <li>Adresse email</li>
+                <li>Informations nécessaires à la prise de rendez-vous</li>
+                <li>Historique des rendez-vous</li>
+            </ul>
+
+            <!-- 2. Finalités -->
+            <h2>2. Finalité du traitement</h2>
+            <p>Vos données sont collectées pour permettre :</p>
+            <ul>
+                <li>La gestion des comptes clients</li>
+                <li>La prise de rendez-vous</li>
+                <li>La communication avec les clients (confirmation, annulation…)</li>
+                <li>Le suivi administratif et comptable</li>
+            </ul>
+            <p>Base légale : <strong>exécution d’un contrat / service</strong> (article 6.1.b du RGPD).</p>
+
+            <!-- 3. Responsable du traitement -->
+            <h2>3. Responsable du traitement</h2>
+            <p>
+                Le responsable de traitement est :<br>
+                <strong>Madame Claire PENVEN</strong><br>
+                30 Stang Boudilin, 29390 Scaër – France<br>
+                Email : <strong>triskellhair@gmail.com</strong>
+            </p>
+
+            <!-- 4. Durée de conservation -->
+            <h2>4. Durée de conservation des données</h2>
+            <ul>
+                <li>Compte client : tant que le compte reste actif</li>
+                <li>Données des rendez-vous : 3 ans maximum</li>
+                <li>Données comptables : 10 ans (obligation légale)</li>
+            </ul>
+
+            <!-- 5. Destinataires -->
+            <h2>5. Destinataires des données</h2>
+            <p>
+                Les données personnelles collectées sont utilisées exclusivement par Triskell’Hair.
+                <br>Aucune donnée n’est transmise ou vendue à des tiers.
+            </p>
+
+            <!-- 6. Sécurité -->
+            <h2>6. Sécurité des données</h2>
+            <p>
+                Le site utilise des mesures techniques avancées pour sécuriser vos données :
+            </p>
+            <ul>
+                <li>Connexion HTTPS</li>
+                <li>Protection CSRF (Symfony)</li>
+                <li>Mots de passe cryptés (hashage)</li>
+                <li>Serveurs sécurisés chez <strong>Hostinger</strong></li>
+            </ul>
+
+            <!-- 7. Droits utilisateurs -->
+            <h2>7. Vos droits (RGPD)</h2>
+            <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+            <ul>
+                <li>Droit d’accès</li>
+                <li>Droit de rectification</li>
+                <li>Droit d’effacement</li>
+                <li>Droit à la limitation du traitement</li>
+                <li>Droit d’opposition</li>
+            </ul>
+            <p>
+                Pour exercer vos droits, contactez :<br>
+                <strong>triskellhair@gmail.com</strong>
+            </p>
+
+            <!-- 8. Cookies -->
+            <h2>8. Cookies</h2>
+            <p>Le site utilise uniquement des cookies techniques indispensables :</p>
+            <ul>
+                <li>Cookie de session (Symfony)</li>
+                <li>Cookie “Se souvenir de moi”</li>
+                <li>0 cookies publicitaires</li>
+                <li>0 traceurs externes (Google Analytics, Facebook, TikTok, etc.)</li>
+            </ul>
+
+            <!-- 9. Hébergement -->
+            <h2>9. Hébergement</h2>
+            <p>
+                Le site est hébergé par :<br>
+                <strong>Hostinger International Ltd</strong><br>
+                61 Lordou Vironos Street, 6023 Larnaca, Chypre<br>
+                Site : https://www.hostinger.fr
+            </p>
+
+            <!-- 10. Contact -->
+            <h2>10. Contact</h2>
+            <p>
+                Pour toute question relative à la politique de confidentialité :<br>
+                <strong>triskellhair@gmail.com</strong>
+            </p>
+
+            <p class="update">
+                Dernière mise à jour : {{ "now"|date("d/m/Y") }}
+            </p>
+
+        </div>
+    </section>
 {% endblock %}
 

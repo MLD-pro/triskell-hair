@@ -320,3 +320,194 @@
     line-height: 1.4;
 }
 
+
+
+
+/* ========================================================= */
+/* === RESPONSIVE : Style pour les écrans < 768px (Mobile) === */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+
+    .auth-page .auth-section .auth-card {
+        padding: 70px 40px !important;
+    }
+
+    /* --- 0. Input sizing global --- */
+    .auth-form {
+        input, select, textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+        }
+    }
+
+    /* --- 1. Structure générale --- */
+    .auth-page {
+        padding: 25px 0 20px;
+    }
+
+    .auth-section {
+        margin-bottom: 30px !important;
+
+        .auth-card {
+            padding: 70px 40px;
+            width: calc(100% - 30px);
+            margin: 0 15px;
+            border-radius: 18px;
+            overflow-x: hidden;
+        }
+    }
+
+    /* --- 2. Style global des champs --- */
+    .auth-form {
+
+        > div {
+            display: block !important;
+            width: 100% !important;
+            margin: 0 0 18px 0;
+        }
+
+        label {
+            margin-bottom: 9px;
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+
+    /* ========================================================= */
+    /* === 3. Formulaire Connexion === */
+    /* ========================================================= */
+
+    .login-section .auth-form {
+
+        > div:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Alignement checkbox — SE SOUVENIR DE MOI */
+        .auth-remember {
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .auth-remember input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .auth-remember label {
+            margin: 0 !important;
+            padding: 0;
+            line-height: 1.2;
+            width: auto !important;
+            display: inline-block;
+        }
+    }
+
+    /* ========================================================= */
+    /* === 4. Alignement Checkbox — INSCRIPTION === */
+    /* ========================================================= */
+
+    .register-section .auth-form > div:nth-child(12) {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .register-section .auth-form > div:nth-child(12) input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .register-section .auth-form > div:nth-child(12) label {
+        margin: 0 !important;
+        width: auto !important;
+        display: inline-block;
+        line-height: 1.3;
+    }
+
+    /* ========================================================= */
+    /* === 5. Formulaire Inscription complet === */
+    /* ========================================================= */
+
+    .register-section .auth-form {
+
+        display: flex;
+        flex-direction: column;
+
+        /* Civilité */
+        #registration_form_civility {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 25px;
+        }
+
+        #registration_form_civility > div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Ville → Code Postal */
+        > div:nth-child(5) {
+            margin-bottom: 40px !important;
+        }
+
+        /* Code postal → Complément d'adresse */
+        > div:nth-child(6) {
+            margin-bottom: 25px !important;
+        }
+
+        .help-text {
+            word-wrap: break-word;
+            width: 100%;
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        /* Conditions */
+        > div:nth-child(12) {
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        > div:last-child {
+            margin-bottom: 0;
+        }
+    }
+    /* --- Boutons responsive (Connexion + Inscription) --- */
+    .auth-form .btn-primary {
+        padding: 10px 50px;
+        font-size: 1.1rem;
+        max-width: 250px;
+        margin: 20px auto;
+    }
+}
+
+/* ========================================================= */
+/* === RESPONSIVE : Petits écrans (< 450px) === */
+/* ========================================================= */
+
+@media (max-width: 450px) {
+
+    .auth-section .auth-card {
+        padding: 20px 8px;
+    }
+}
+
+
+
+
+

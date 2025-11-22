@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réinitialisation de votre mot de passe</title>
+
+    <style>
+        /* Style directement inclus dans l'email (obligatoire pour les mails) */
+        .email-wrapper {
+            background: #f7f7f7;
+            padding: 25px 0;
+            font-family: Arial, sans-serif;
+        }
+        .email-container {
+            background: #ffffff;
+            max-width: 550px;
+            margin: auto;
+            padding: 30px 25px;
+            border-radius: 14px;
+            border: 1px solid #e1e1e1;
+        }
+        h2 {
+            color: #483D3D;
+            font-size: 22px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        p {
+            color: #5B5B5B;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .btn-reset {
+            display: inline-block;
+            background: #B4A37D;
+            color: #ffffff !important;
+            padding: 12px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #999999;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="email-wrapper">
+    <div class="email-container">
+        <h2>Réinitialisation de votre mot de passe</h2>
+
+        <p>Bonjour,</p>
+
+        <p>
+            Une demande de réinitialisation de mot de passe a été effectuée pour votre compte
+            <strong>Triskell’Hair</strong>.
+            Cliquez sur le bouton ci-dessous pour définir un nouveau mot de passe :
+        </p>
+
+        <p style="text-align:center;">
+            <a href="{{ url('app_reset_password', {'token': resetToken.token}) }}" class="btn-reset">
+                Réinitialiser mon mot de passe
+            </a>
+        </p>
+
+        <p>
+            Ce lien est valable pendant <strong>1 heure</strong>.
+            Si vous n’êtes pas à l’origine de cette demande, vous pouvez ignorer cet email en toute sécurité.
+        </p>
+
+        <div class="footer">
+            Triskell’Hair — Beauté & Confiance à Domicile
+        </div>
+    </div>
+</div>
+</body>
+</html>

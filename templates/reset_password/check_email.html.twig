@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Email envoyé{% endblock %}
+
+{% block body %}
+    <div class="container-centered reset-container">
+        <h1>Email envoyé</h1>
+
+        <p>
+            Si un compte existe avec cette adresse email, un lien de réinitialisation vous a été envoyé.
+            <br><br>
+            Ce lien expirera dans <strong>1 heure</strong>.
+        </p>
+
+        <p>Si vous ne voyez rien, vérifiez vos courriers indésirables.</p>
+
+        <a href="{{ path('app_login') }}" class="btn-primary">Retour à la connexion</a>
+    </div>
+{% endblock %}

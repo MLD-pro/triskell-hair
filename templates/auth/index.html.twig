@@ -38,9 +38,16 @@
                     <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
 
                     <div class="auth-remember">
-                        <input type="checkbox" id="remember_me" name="_remember_me" value="on">
-                        <label for="remember_me">Se souvenir de moi</label>
+                        <div class="remember-left">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                            <label for="remember_me">Se souvenir de moi</label>
+                        </div>
+
+                        <a class="forgot-password" href="{{ path('app_forgot_password_request') }}">
+                            Mot de passe oublié ?
+                        </a>
                     </div>
+
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 

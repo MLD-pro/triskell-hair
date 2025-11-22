@@ -154,28 +154,46 @@
             margin-top: 0;
         }
 
-        /* Se souvenir de moi */
+        /* === LIGNE "Se souvenir de moi" + "Mot de passe oublié ?" === */
         .auth-remember {
             display: flex;
+            justify-content: space-between;   /* ➜ l’alignement gauche/droite */
             align-items: center;
-            gap: 10px;
             width: 100%;
             max-width: 800px;
             margin-top: 6px;
-            justify-content: flex-start;
 
-            input[type="checkbox"] {
-                accent-color: $color-accent;
-                width: 18px;
-                height: 18px;
-                margin: 0;
+            /* Bloc gauche : checkbox + texte */
+            .remember-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                input[type="checkbox"] {
+                    accent-color: $color-accent;
+                    width: 18px;
+                    height: 18px;
+                    margin: 0;
+                }
+
+                label {
+                    font-weight: 500;
+                    color: #483D3D;
+                    font-size: 1rem;
+                    margin: 0;
+                }
             }
 
-            label {
-                font-weight: 500;
-                color: #483D3D;
-                font-size: 1rem;
-                margin: 0;
+            /* Bloc droite : lien "mot de passe oublié" */
+            .forgot-password {
+                font-size: 0.95rem;
+                color: $color-accent;
+                text-decoration: underline;
+                cursor: pointer;
+
+                &:hover {
+                    color: darken($color-accent, 8%);
+                }
             }
         }
     }

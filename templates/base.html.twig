@@ -11,11 +11,10 @@
     {# police d'écriture #}
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    {# CSS compilé avec Webpack Encore #}
-    {{ encore_entry_link_tags('app') }}
+    {% block importmap %}
+        {{ importmap('app') }}
+    {% endblock %}
 
-    {# JS compilé avec Webpack Encore #}
-    {{ encore_entry_script_tags('app') }}
 </head>
 <body>
 <!-- HEADER -->

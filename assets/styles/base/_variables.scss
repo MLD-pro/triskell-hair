@@ -13,7 +13,8 @@ $color-gold-light: #F9DA97;
 $color-white: #FEFEFE;
 
 /* === TYPOGRAPHIES === */
-$font-main: 'Lexend', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap');
+$font-main: 'Lexend', 'sans-serif';
 
 /*=== OMBRES === */
 $shadow-soft: 0 6px 14px rgba(72, 61, 61, 0.35); /* pour les carte blanc */

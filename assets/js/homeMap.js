@@ -1,5 +1,5 @@
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const mapContainer = document.getElementById("map");

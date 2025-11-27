@@ -1,6 +1,5 @@
 // assets/js/location.js
 
-import L from 'leaflet';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form[name="location_search"]');

@@ -7,10 +7,11 @@ import './bootstrap.js';
  */
 
 // FontAwesome
+/*
 import '@fortawesome/fontawesome-free/js/all.min.js';
-
+*/
 // Notre SCSS global
-import './styles/index.scss';
+import './styles/app.scss';
 
 // Tous les scripts JS du site
 import './js/main.js';
@@ -20,7 +21,8 @@ import './js/location.js';
 import './js/homeMap.js';
 
 // Leaflet (pour la map)
-import 'leaflet/dist/leaflet.css';
+import './vendor/leaflet/dist/leaflet.min.css';
+import L from "leaflet";
 
-console.log('This log comes from assets/app.js - welcome to Webpack Encore 🎉');
+console.log('This log comes from assets/app.js  🎉');
 

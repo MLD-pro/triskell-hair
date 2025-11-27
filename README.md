@@ -1,123 +1,18 @@
-Triskell’Hair
+Triskell’Hair est une application web développée avec Symfony. Elle permet aux utilisateurs de demander un rendez-vous, de consulter les prestations, de visualiser les réalisations avant/après, d’accéder à la zone de déplacement et de gérer leur compte utilisateur. Une interface d’administration sécurisée, basée sur EasyAdmin, permet la gestion du contenu du site.
 
-Triskell’Hair is a web application built with Symfony, using Twig, Doctrine ORM, EasyAdmin, and custom JavaScript for enhanced user interactions.
-The project manages appointment requests, services, before/after achievements, a service area map, and includes a secure administration panel.
+Le projet fonctionne avec PHP 8.4.11, Composer et MySQL. Après avoir cloné le dépôt GitHub, les dépendances PHP sont installées avec la commande « composer install ». Symfony utilise plusieurs fichiers d’environnement versionnés, notamment .env, .env.dev, .env.prod et .env.test. Pour la configuration locale, il est nécessaire de créer un fichier .env.local, non versionné, contenant les informations sensibles comme la connexion MySQL ou la configuration du Mailer. Ce fichier surcharge automatiquement les autres fichiers .env.
 
-Installation
-Requirements
+La base de données est ensuite initialisée à l’aide des outils Doctrine : création de la base puis exécution des migrations pour générer toutes les tables nécessaires (utilisateurs, rendez-vous, prestations, réalisations avant/après, zones de déplacement et relations associées).
 
-PHP 8.2
+Les assets front-end (SCSS, JavaScript, images…) sont gérés avec Symfony AssetMapper, qui remplace entièrement Webpack Encore. Aucun outil externe comme npm ou Webpack n’est utilisé ni nécessaire. Les fichiers présents dans le dossier « assets » sont automatiquement exposés et transformés si besoin par AssetMapper, sans compilation manuelle.
 
-Composer
+L’application peut être lancée en local avec la commande « symfony serve » et est accessible par défaut à l’adresse http://localhost:8000/
+.
+L’architecture du projet suit la structure standard de Symfony : le dossier « src » contient les contrôleurs, entités, formulaires et repositories ; « templates » contient les fichiers Twig ; « assets » contient les fichiers front-end gérés par AssetMapper ; « public » contient les ressources publiques et le point d’entrée de l’application ; et le dossier « config » regroupe la configuration des routes, de la sécurité et des services.
 
-MySQL
+Le déploiement du site a été réalisé sur Hostinger en utilisant une connexion SSH. Une clé SSH a été générée sur l’hébergement puis ajoutée au dépôt GitHub, permettant au serveur d’accéder au code de manière sécurisée. Le projet a ensuite été cloné directement depuis GitHub à l’aide du terminal SSH intégré grâce à la commande « git clone ». Cette méthode assure que la version en ligne est identique à celle du dépôt, sans transfert manuel de fichiers.
 
-Local server (WAMP, MAMP, XAMPP, or Symfony CLI)
-
-Node.js + npm
-
-Required PHP extensions:
-pdo_mysql, mbstring, openssl, intl, json, ctype
-
-Clone the repository
-git clone https://github.com/<your-username>/triskellhair.git
-cd triskellhair
-
-Install backend dependencies
-composer install
-
-
-This installs Symfony components, Doctrine ORM, EasyAdmin, Twig, and all required backend dependencies.
-
-Environment configuration
-
-Duplicate the environment file:
-
-cp .env .env.local
-
-
-Then edit .env.local with your personal configuration:
-
-DATABASE_URL="mysql://root:@127.0.0.1:3306/triskellhair?charset=utf8mb4"
-APP_ENV=dev
-MAILER_DSN=smtp://localhost
-
-
-.env.local must not be versioned, as it contains sensitive information.
-
-Database creation
-
-Create the database:
-
-php bin/console doctrine:database:create
-
-
-Run the migrations:
-
-php bin/console doctrine:migrations:migrate
-
-
-This generates all required tables, including:
-User, Appointement, Service, Achievement, Location, and Appointement_Service (many-to-many link table).
-
-Install and compile frontend assets
-
-Install dependencies:
-
-npm install
-
-
-Build assets:
-
-npm run build
-
-
-Or use watch mode during development:
-
-npm run watch
-
-Run the application
-
-Using Symfony CLI:
-
-symfony serve
-
-
-Default address:
-
-http://localhost:8000/
-
-Project Structure
-/src
-/Controller       → Page controllers (public & admin)
-/Entity           → Doctrine entities (User, Appointement, Service…)
-/Repository       → Repositories (data access layer)
-/Form             → Symfony forms
-/assets               → JavaScript, SCSS, Jest tests
-/templates            → Twig templates (frontend + EasyAdmin)
-public/               → Entry point (index.php) + compiled assets
-config/               → Security, routes, services configuration files
-
-Unit Tests
-
-Unit tests have been implemented using Jest for some frontend JavaScript components—
-notably the logic behind the burger menu system.
-
-Run tests:
-
-npm test
-
-
-Test coverage includes:
-
-Opening and closing the burger menu
-
-Closing the menu when clicking on a link
-
-Closing the menu when clicking the overlay
-
-Jest displays the test results directly in the terminal.
-
+Ce projet a été développé dans un cadre pédagogique et représente une mise en œuvre complète d’une application web moderne construite avec Symfony et AssetMapper.
 License
 
 This project was developed for educational purposes.
